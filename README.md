@@ -4,8 +4,5 @@ Este é um livro open-source, tanto no conteúdo quanto no código-fonte associa
 
 Com o passar dos capítulos será possível perceber a utilização iterativa e incremental de recursos até chegar à conclusão do desenvolvimento do gerenciador escolar.
 
-> \[info\] Aviso  
-> Teste de aviso
-
-
+Parte do conteúdo do livro é baseado na documentação oficial do Angular, disponível em [https://angular.io](https://angular.io).
 

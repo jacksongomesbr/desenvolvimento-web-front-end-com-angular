@@ -4,5 +4,13 @@
 * mostrar comandos básicos
 * mostrar o arquivo .angular-cli.json e sua importância no projeto \(incluir estilos, incluir bibliotecas\)
 
+## Criar um projeto
+
+```
+ng new escola-app
+```
+
+
+
 
 
