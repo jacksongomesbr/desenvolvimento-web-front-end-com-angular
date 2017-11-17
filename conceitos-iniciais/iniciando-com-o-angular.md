@@ -1,9 +1,13 @@
 # Iniciando com o Angular
 
-* mostrar a composição padrão de um típico projeto angular com módulos e componentes
-* demonstrar o conteúdo do package.json
+> Objetivos do capítulo:
+>
+> * demonstrar os elementos da Arquitetura do Angular
+> * demonstrar a relação entre os elementos da Arquitetura do Angular e arquivos do projeto
 
-O Angular é um framework para o desenvolvimento de software front-end. Isso quer dizer que utiliza tecnologias padrão do contexto web como HTML, CSS e uma linguagem de programação como JavaScript ou TypeScript. 
+
+
+O Angular é um framework para o desenvolvimento de software front-end. Isso quer dizer que utiliza tecnologias padrão do contexto web como HTML, CSS e uma linguagem de programação como JavaScript ou TypeScript.
 
 Um software desenvolvido em Angular é composto por diversos elementos como: módulos, componentes, templates e serviços. Esses elementos fazem parte da arquitetura do Angular, que é ilustrada pela figura a seguir.
 
@@ -32,7 +36,7 @@ Uma biblioteca pode conter módulos, componentes, diretivas e serviços.
 
 ### Componentes
 
-Um componente está, geralmente, relacionado a algo visual, ou seja, uma tela ou parte dela. Nesse sentido, um componente possui código \(**Controller**\) que determina ou controla o comportamento da interação com o usuário \(**View** ou **Template**\). 
+Um componente está, geralmente, relacionado a algo visual, ou seja, uma tela ou parte dela. Nesse sentido, um componente possui código \(**Controller**\) que determina ou controla o comportamento da interação com o usuário \(**View** ou **Template**\).
 
 O **Template** determina a parte visual do componente e é definido por código HTML e CSS, além de recursos específicos do Angular, como outros componentes e diretivas.
 
@@ -90,7 +94,7 @@ Um software desenvolvido em Angular é representado por vários arquivos HTML, C
 - tslint.json
 ```
 
-No diretório raiz do software: 
+No diretório raiz do software:
 
 * `src`: contém o código-fonte do software \(módulos, componentes etc.\)
 * `.angular-cli.json`: contém configurações do projeto Angular \(nome, scripts etc.\)
@@ -116,6 +120,4 @@ No diretório `app`:
 Esse capítulo incial do livro apresentou conceitos importantes do Angular. A maior parte dos conceitos está diretamente relacionada a código-fonte \(HTML, CSS, TypeScript e JSON\) que estão em arquivos do diretório onde encontra-se o projeto.
 
 Sempre que necessário, volte a esse capítulo para revisar conceitos do Angular. Muito provavelmente, mesmo desenvolvedores experientes precisem, de tempos em tempos, rever essas definições da arquitetura do Angular.
-
-
 
