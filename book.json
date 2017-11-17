@@ -1,3 +1,10 @@
 {
-    "plugins": []
+    "plugins": ["anchors", "last-modified", "url-embed", "image-captions", "page-numbering", "alerts"],
+    "pluginsConfig": {
+      "image-captions": {
+        "variable_name": "pictures",
+        "align": "left",
+        "caption": "Figura _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_"
+      }
+    }
 }
