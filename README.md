@@ -4,7 +4,7 @@ Este é um livro open-source, tanto no conteúdo quanto no código-fonte associa
 
 Com o passar dos capítulos será possível perceber a utilização iterativa e incremental de recursos até chegar à conclusão do desenvolvimento do gerenciador escolar.
 
-> \*\*\[info\] Aviso  
+> \[info\] Aviso  
 > Teste de aviso
 
 
