@@ -1,11 +1,9 @@
 # Iniciando com o Angular
 
-> Objetivos do capítulo:
+> \[info\] **Objetivos do capítulo**:
 >
 > * demonstrar os elementos da Arquitetura do Angular
 > * demonstrar a relação entre os elementos da Arquitetura do Angular e arquivos do projeto
-
-
 
 O Angular é um framework para o desenvolvimento de software front-end. Isso quer dizer que utiliza tecnologias padrão do contexto web como HTML, CSS e uma linguagem de programação como JavaScript ou TypeScript.
 
