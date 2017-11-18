@@ -7,7 +7,7 @@
 
 Neste livro você verá informações técnicas sobre desenvolvimento de software web com Angular e isso é colocado em prática por meio do desenvolvimento de um software de gerenciamento escolar. Antes disso, entretanto, vamos ao contexto: gerenciamento escolar.
 
-## Gerenciamento escolar
+## Contexto da escola
 
 No contexto desse livro o gerenciamento escolar é aplicado em uma escola com as seguintes características:
 
@@ -25,9 +25,12 @@ No contexto desse livro o gerenciamento escolar é aplicado em uma escola com as
     * pode ter um ou mais alunos
       * matrícula é quando um aluno é matriculado em uma turma e cursa todas as disciplinas do ano letivo
     * fisicamente, está presente em uma sala de aula \(sala padrão\)
+
     * uma aula é quando conteúdos didáticos de uma disciplina da turma são trabalhados com professores e alunos em horários específicos na semana
+
     * uma aula pode ter participação de um ou mais professores \[da turma\]
     * uma aula pode ser realizada na sala de aula padrão da turma ou em instalação física
+    * uma aula é realizada em um dia da semana, em um horário específico \(informação utilizada para compor a grade horária\)
     * em cada aula o professor registra a frequência do aluno \(presença ou falta\)
     * cada aula tem a duração de 50 minutos e conta como uma hora \(na Carga Horária\)
   * os conteúdos das aulas são organizados em bimestres e, por isso, são realizadas avaliações bimestrais, totalizando quatro \(para cada disciplina\) no ano letivo
@@ -54,7 +57,30 @@ Para ilustrar esse contexto, alguns exemplos:
 
 ![](/assets/escola-estrutura-ensino-infantil.png)
 
+## Gerenciamento escolar
 
+Com base nas características da escola usada nesse contexto, o software de gerenciamento escolar compreende os seguintes requisitos conforme os atores:
+
+* **gerente administrativo**
+  * gerenciar o cadastro de cargos
+  * gerenciar o cadastro de funções
+  * gerenciar o cadastro de funcionários
+  * gerenciar o cadastro de instalações físicas
+* **gerente de ensino**
+  * gerenciar o cadastro de disciplinas
+  * gerenciar o cadastro de níveis de ensino
+  * gerenciar o cadastro de estruturas curriculares
+  * gerenciar o cadastro de turmas \(bem como professores nas turmas\)
+  * gerenciar o cadastro de matrículas \(alunos nas turmas\)
+  * gerenciar o cadastro da grade horária
+* **professor**
+  * gerenciar o cadastro de frequência dos alunos \(nas suas turmas e disciplinas\)
+  * gerenciar as notas das avaliações bimestrais dos alunos \(nas suas turmas e disciplinas\)
+* **aluno \(e/ou pais ou responsáveis\)**
+  * consultar estrutura curricular
+  * consultar agenda de aula \(turmas, disciplinas, salas de aula, dias da semana e horários de aula\)
+
+  * consultar histórico
 
 
 
