@@ -63,6 +63,8 @@ Para ilustrar esse contexto, alguns exemplos de estruturas curriculares:
 
 Com base nas características da escola usada nesse contexto, o software de gerenciamento escolar compreende os seguintes requisitos conforme os atores:
 
+* **gerente do sistema**
+  * gerenciar o cadastro de usuários e permissões de acesso
 * **gerente administrativo**
   * gerenciar o cadastro de cargos
   * gerenciar o cadastro de funções
