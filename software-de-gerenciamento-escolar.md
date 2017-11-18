@@ -82,10 +82,8 @@ Com base nas características da escola usada nesse contexto, o software de gere
   * gerenciar o cadastro de frequência dos alunos \(nas suas turmas e disciplinas\)
   * gerenciar as notas das avaliações bimestrais dos alunos \(nas suas turmas e disciplinas\)
 * **aluno \(e/ou pais ou responsáveis\)**
-
   * consultar estrutura curricular
   * consultar agenda de aula \(turmas, disciplinas, salas de aula, dias da semana e horários de aula\)
-
   * consultar histórico
 
 
