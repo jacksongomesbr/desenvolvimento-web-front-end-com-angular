@@ -1,0 +1,60 @@
+# Software de gerenciamento escolar
+
+> \[info\] **Objetivo do capítulo:**
+>
+> * apresentar informações sobre gerenciamento escolar
+> * apresentar requisitos do software de gerenciamento escolar
+
+Neste livro você verá informações técnicas sobre desenvolvimento de software web com Angular e isso é colocado em prática por meio do desenvolvimento de um software de gerenciamento escolar. Antes disso, entretanto, vamos ao contexto: gerenciamento escolar.
+
+## Gerenciamento escolar
+
+No contexto desse livro o gerenciamento escolar é aplicado em uma escola com as seguintes características:
+
+* a estrutura de pessoal \(recursos humanos\) tem as seguintes características:
+  * funcionários são pessoas contratadas para ocupar cargos e realizar funções
+  * um funcionário tem um cargo
+  * um funcionário tem uma ou mais funções
+  * um funcionário pode ser: administrativo ou docente
+* a estrutura acadêmica da escola tem as seguintes características:
+  * há três níveis de ensino: ensino infantil, ensino fundamental, ensino médio
+  * cada nível de ensino pode ser organizado em anos de ensino e cada um possui disciplinas 
+  * a relação entre nível de ensino, ano de ensino, disciplinas e cargas horárias é chamada de estrutura curricular \(há exemplos disso a seguir\) 
+  * uma turma é quando um item do componente curricular é ministrado durante um ano letivo e tem as seguintes características:
+    * pode ter um ou mais professores por disciplina
+    * pode ter um ou mais alunos
+      * matrícula é quando um aluno é matriculado em uma turma e cursa todas as disciplinas do ano letivo
+    * fisicamente, está presente em uma sala de aula \(sala padrão\)
+    * uma aula é quando conteúdos didáticos de uma disciplina da turma são trabalhados com professores e alunos em horários específicos na semana
+    * uma aula pode ter participação de um ou mais professores \[da turma\]
+    * uma aula pode ser realizada na sala de aula padrão da turma ou em instalação física
+    * em cada aula o professor registra a frequência do aluno \(presença ou falta\)
+    * cada aula tem a duração de 50 minutos e conta como uma hora \(na Carga Horária\)
+  * os conteúdos das aulas são organizados em bimestres e, por isso, são realizadas avaliações bimestrais, totalizando quatro \(para cada disciplina\) no ano letivo
+  * ao final do ano letivo as quatro notas são utilizadas para compor a nota final, que é uma média aritmética das notas dos bimestres
+  * ao final do ano letivo o aluno é considerado aprovado na disciplina se tiver média aritmética igual ou superior a 6,0 e frequência superior a 75%
+* a estrutura física da escola tem as seguintes características:
+  * uma instalação física pode ser: prédio, sala admnistrativa, laboratório ou sala de aula
+
+Para ilustrar esse contexto, alguns exemplos:
+
+**Estrutura curricular do Ensino Fundamental - 1º ao 5º ano**
+
+![](/assets/escola-estrutura-curricular-1-5.png)
+
+**Estrutura curricular do Ensino Fundamental - 6º ao 9º ano**
+
+![](/assets/escola-estrutura-curricular-6-9.png)
+
+**Estrutura curricular do Ensino Médio**
+
+![](/assets/escola-estrutura-curricular-medio.png)
+
+**Estrutura curricular do Ensino Infantil**
+
+![](/assets/escola-estrutura-ensino-infantil.png)
+
+
+
+
+
