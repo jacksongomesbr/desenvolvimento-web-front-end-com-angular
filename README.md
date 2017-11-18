@@ -4,5 +4,7 @@ Este é um livro open-source, tanto no conteúdo quanto no código-fonte associa
 
 Com o passar dos capítulos será possível perceber a utilização iterativa e incremental de recursos até chegar à conclusão do desenvolvimento do gerenciador escolar.
 
-Parte do conteúdo do livro é baseado na documentação oficial do Angular, disponível em [https://angular.io](https://angular.io).
+Parte do conteúdo do livro é baseada na documentação oficial do Angular, disponível em [https://angular.io](https://angular.io).
+
+Como o Angular é um projeto em constante desenvolvimento \(pelo menos até agora\) serão publicadas atualizações no conteúdo do livro sempre que possível, para refletir novos recursos e funcionalidades. No momento, o conteúdo do livro é baseado na versão **5.0.0**.
 
