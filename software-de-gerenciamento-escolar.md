@@ -19,7 +19,7 @@ No contexto desse livro o gerenciamento escolar é aplicado em uma escola fictí
 * a **estrutura acadêmica** da escola tem as seguintes características:
   * há três níveis de ensino: ensino infantil, ensino fundamental, ensino médio
   * cada nível de ensino pode ser organizado em anos de ensino e cada um possui disciplinas 
-  * a relação entre nível de ensino, ano de ensino, disciplinas e cargas horárias é chamada de estrutura curricular \(há exemplos disso a seguir\) 
+  * a relação entre nível de ensino e ano de ensino é chamada de estrutura curricular, cada qual com disciplinas e suas cargas horárias anuais
   * uma turma é quando um item do componente curricular é ministrado durante um ano letivo e tem as seguintes características:
     * pode ter um ou mais professores por disciplina
     * pode ter um ou mais alunos
@@ -36,7 +36,7 @@ No contexto desse livro o gerenciamento escolar é aplicado em uma escola fictí
     * as quatro notas são utilizadas para compor a nota final, que é uma média aritmética das notas dos bimestres
     * o aluno é considerado "APROVADO" na disciplina se tiver média aritmética igual ou superior a 6,0 e frequência superior a 75%
     * o aluno que não conseguir nota final suficiente pode realizar uma prova de recuperação, cuja nota substitui a nota final. Por fim, se o aluno não obtiver nota igual ou superior a 6,0 na recuperação ele é considerado "REPROVADO"
-    * em situações excepcionais o aluno pode ser considerado "APROVADO" em conselho de classe (uma reunião realizada ao final do ano letivo com os professores)
+    * em situações excepcionais o aluno pode ser considerado "APROVADO" em conselho de classe \(uma reunião realizada ao final do ano letivo com os professores\)
   * com exceção do ensino infantil, o aluno só pode ser matriculado no ano seguinte se tiver sido aprovado em todas as disciplinas do ano corrente
 * a **estrutura física** da escola tem as seguintes características:
   * uma instalação física pode ser: prédio, sala admnistrativa, laboratório ou sala de aula
@@ -74,17 +74,24 @@ Com base nas características da escola usada nesse contexto, o software de gere
   * gerenciar o cadastro de disciplinas
   * gerenciar o cadastro de níveis de ensino
   * gerenciar o cadastro de estruturas curriculares
-  * gerenciar o cadastro de turmas \(bem como professores nas turmas\)
+  * gerenciar o cadastro de turmas \(bem como professores nas turmas e horários\)
+  * gerenciar o cadastro de alunos \(geral\)
   * gerenciar o cadastro de matrículas \(alunos nas turmas\)
-  * gerenciar o cadastro da grade horária
+  * registrar aprovação ou reprovação excepcional em conselho de classe
 * **professor**
+  * ver as turmas em que ministra disciplinas
+  * ver os alunos das turmas em que ministra disciplinas
+  * ver a agenda de aula das turmas em que ministra disciplinas \(turmas, disciplinas, salas de aula, dias da semana e horários de aula\)
+  * ver a agenda de aula da escola \(todas as turmas do ano letivo\)
   * gerenciar o cadastro de frequência dos alunos \(nas suas turmas e disciplinas\)
   * gerenciar as notas das avaliações bimestrais dos alunos \(nas suas turmas e disciplinas\)
 * **aluno \(e/ou pais ou responsáveis\)**
-  * registrar aprovação excepcional em conselho de classe
-  * consultar estrutura curricular
-  * consultar agenda de aula \(turmas, disciplinas, salas de aula, dias da semana e horários de aula\)
-  * consultar histórico
+  * ver a estrutura curricular do nível e ano de ensino em que está matriculado
+  * ver a estrutura curricular de todos os níveis e anos de ensino
+  * ver a agenda de aula da turma em que está matriculado \(disciplinas, professores, salas de aula, dias da semana e horários de aula\)
+  * ver o histórico acadêmico \(notas e situação final para as turmas cursadas\)
+
+Uma descrição mais completa dos requisitos pode ser encontrada aqui: [http://200.199.229.99/reqman/projects/3/documentation.pdf](http://200.199.229.99/reqman/projects/3/documentation.pdf).
 
 
 
