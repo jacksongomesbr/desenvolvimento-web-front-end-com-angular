@@ -66,10 +66,9 @@ Por ser um conteúdo em formato JSON, o interpretamos da seguinte forma:
 * `dependencies`: é o atributo que define as dependências do projeto. Basicamente, as dependências atuais são padrão para software desenvolvido em Angular. Importante notar que o nome de cada atributo determina o pacote \(como `@angular/core`\) e seu valor determina a versão \(como `^5.0.0`, indicando a versão desses pacotes do Angular\)
 * `devDependencies`: é o atributo que define as dependências de desenvolvimeto. São ferramentas que não geram código-fonte que será distribuído junto com o software que está sendo desenvolvido
 
-## Examinando o código-fonte#0
+## Examinando o código-fonte\#0
 
 Agora que você já conhece um pouco mais da estrutura do software Angular, do Angular CLI e do npm, vamos dar uma olhada no código-fonte que está gerando o software atual, começando pelo `AppComponent` e seu **Template**, que está no arquivo `./src/app/app.component.html`, cujo trecho de conteúdo é apresentado a seguir.
-
 
 ```html
 <div style="text-align:center">
@@ -81,6 +80,38 @@ Agora que você já conhece um pouco mais da estrutura do software Angular, do A
 ...
 ```
 
+Se HTML for familiar pra você então não há problema para entender o código do Template. Na verdade, tem algo diferente ali perto de `Welcome to` e vamos falar disso daqui a pouco.
 
+Agora, o Controller do mesmo componente, no arquivo `./src/app/app.component.ts`, com código-fonte a seguir:
 
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app';
+}
+```
+
+Há pouco conteúdo, mas já são usados vários conceitos do Angular, vamos examinar um-a-um:
+
+1. a primeira linha usa a instrução `import` para incluir algo chamado `Component` e que é disponibilizado pelo pacote `@angular/core`. 
+2. `Component` é uma **annotation function** e é utilizada pelo Angular para adicionar metadados à classe `AppComponent`.
+3. Os metadados são fornecidos como parâmetro para a função `Component`: 
+   1. `selector`: indica que o **seletor **é `app-root`. E o que é seletor? Veremos daqui a pouco
+   2. `templateUrl`: indica que o arquivo utilizado para o template do componente é `./app.component.html` \(que vimos há pouco\)
+   3. `styleUrls`: é um array que indica quais são os arquivos CSS utilizados no componente. Nesse caso, está sendo utilizado apenas o arquivo `./app.component.css`
+4. a instrução `export` é utilizada para que outros arquivos possam utilizar a classe `AppComponent`
+
+Antes de prosseguirmos, perceba que há um atributo da classe `AppComponent` chamado `title` e tem o valor `'app'` (onde já vimos isso?).
+
+A figura a seguir ilustra a estrutura do `AppComponent`.
+
+![Estrutura do component AppComponent](/assets/projeto-original-appcomponent.png)
+
+Como mostra a figura o component `AppComponent` é composto por **Template**, **Controller** e **Model**. O Template está definido no arquivo `./src/app/app.component.html`, enquanto o Controller e o Model estão definidos no arquivo './src/app/app.component.ts`.
 
