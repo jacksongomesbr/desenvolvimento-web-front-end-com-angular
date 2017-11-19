@@ -187,7 +187,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 ```
 
-O método `platformBrowserDynamic()` retorna um objeto que contém o método `boostrapModule()` que, ao ser executado, recebe como parâmetro a classe `AppModule`, que será utilizada para representar o **root module**. Lembra disso? No capítulo [Iniciando com o Angular](/conceitos-iniciais/iniciando-com-o-angular.md) vimos que o **root module** é o módulo mais importante de todo projeto Angular, porque é o primeiro a ser executado \(agora você deve estar entendendo isso\). 
+O método `platformBrowserDynamic()` retorna um objeto que contém o método `boostrapModule()` que, ao ser executado, recebe como parâmetro a classe `AppModule`, que será utilizada para representar o **root module**. Lembra disso? No capítulo [Iniciando com o Angular](/conceitos-iniciais/iniciando-com-o-angular.md) vimos que o **root module** é o módulo mais importante de todo projeto Angular, porque é o primeiro a ser executado \(agora você deve estar entendendo isso\).
 
 Certo, então o Angular carrega primeiro o `index.html`, depois usa o `AppModule` como **root module**, mas isso ainda não explica como o `AppComponent` passou a aparecer no Browser. Para entender isso, veja o arquivo `./src/app/app.module.ts`, que define o `AppModule`:
 
@@ -219,9 +219,13 @@ As coisas estão ficando mais conectadas agora e a figura a seguir ilustra isso.
 
 ![](/assets/angular-inicial-estrutura-appmodule-appcomponent-index.png)
 
+É isso! O elemento `app-root` é interpretado corretamente pelo Browser quando recebe o arquivo `index.html` porque ele está indicado como `selector` do `AppComponent`, que é o componente executado pelo `AppModule`, qué o **root module**. O `selector` do `AppComponent` é utilizado pelo Angular para saber onde apresentar o component no Template. O valor `'app-root'` indica que o Angular deve procurar um elemento com esse nome. E é o que acontece.
 
+**Viu? Não é mágica. É software!**
 
-Uma parte importante desse processo é dar capacidade para o Browser identificar o que fazer com um elemento que não é do HTML: veja a linha que contém o elemento `app-root`. A seguir, mais uma figura para ilustrar um processo importante.
+## O que vem a seguir?
+
+Como agora você já deve estar entendendo melhor o funcionamento do Angular e o código-fonte do projeto, é hora de sujar as mãos =\) No capítulo a seguir você vai implementar o requisito: **ver as disciplinas**.
 
 
 
