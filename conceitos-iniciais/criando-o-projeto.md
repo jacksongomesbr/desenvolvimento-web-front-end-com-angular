@@ -107,11 +107,76 @@ Há pouco conteúdo, mas já são usados vários conceitos do Angular, vamos exa
    3. `styleUrls`: é um array que indica quais são os arquivos CSS utilizados no componente. Nesse caso, está sendo utilizado apenas o arquivo `./app.component.css`
 4. a instrução `export` é utilizada para que outros arquivos possam utilizar a classe `AppComponent`
 
-Antes de prosseguirmos, perceba que há um atributo da classe `AppComponent` chamado `title` e tem o valor `'app'` (onde já vimos isso?).
+Antes de prosseguirmos, perceba que há um atributo da classe `AppComponent` chamado `title` e tem o valor `'app'` \(onde já vimos isso?\).
 
 A figura a seguir ilustra a estrutura do `AppComponent`.
 
 ![Estrutura do component AppComponent](/assets/projeto-original-appcomponent.png)
 
-Como mostra a figura o component `AppComponent` é composto por **Template**, **Controller** e **Model**. O Template está definido no arquivo `./src/app/app.component.html`, enquanto o Controller e o Model estão definidos no arquivo './src/app/app.component.ts`.
+Como mostra a figura o componente `AppComponent` é composto por **Template**, **Controller** e **Model**. O Template está definido no arquivo `./src/app/app.component.html`, enquanto o Controller e o Model estão definidos no arquivo `./src/app/app.component.ts`. Template e Controller são mais fáceis de identificar nessa arquitetura. Enquanto o primeiro está no arquivo HTML o segundo é a classe no arquivo TypeScript. Entretanto, onde está o Model? Antes de responder essa pergunta faça um alteração no Controller: altere o valor do atributo `title` para, por exemplo, `'Angular'`.
+
+Se você não tiver interrompido a execução do script `npm start` acontecerá uma recompilação incremental automaticamente e a janela do Browser será recarregada. Na página, o que está logo depois de `Welcome to` ? Isso mesmo, a palavra "Angular". Que mágica é essa? Nenhuma mágica! Vamos olhar novamente o Template, mais de perto:
+
+```html
+<h1>
+Welcome to {{title}}!
+</h1>
+```
+
+Nesse momento você já deve ter aprendido que o trecho `{{title}}` é responsável por fazer com que o valor do atributo `title` to Controller apareça no Browser. Isso é resultado do processo de **Data binding**: 
+
+* analisa o Controller e identifica métodos e atributos
+* interpreta e analisa o Template e procura por, por exemplo, conteúdo que esteja entre `{{` e `}}`
+* utiliza o recurso de **interpolação**, que faz com a expressão dentro de `{{` e `}}` seja interpretada e gere uma alteração no conteúdo do Template ao ser apresentado no Browser. Nesse caso `{{title}}` significa: mostre o valor de `title`. 
+
+A figura a seguir ilustra os elementos desse processo.
+
+![Relação entre Model-Template-Controller no AppComponent](/assets/angular-inicial-app-component-template-model.png)
+
+Aqui aprendemos algo um conceito importante: o **Angular interpreta o Template**. Isso significa que todo o seu conteúdo, HTML e CSS, é interpretado pelo Angular antes de ser entregue para o Browser. É isso que faz com que o recurso de interpolação funcione. É por isso, também, que Data binding é tão importante no Angular. Ele é responsável por fazer com que o atributo `title`, que compõe o Model \(ah, agora sim!\), esteja disponível para ser usado no Template. Além disso, qualquer alteração no valor desse atributo representará uma alteração na visualização do componente no Browser.
+
+Se você se lembrar da discussão sobre Angular ser MVC ou MVVM é aqui que o entendimento pesa a favor do segundo. O Controller não está desassociado do Model e, por causa do Data binding, sua função inclui informar o Template de que ocorreu uma alteração no Model, de forma que ele seja atualizado.
+
+É isso, o Model é um conceito abstrato e está, geralmente, no Controller, representado por atributos e métodos -- sim, também é possível mostrar o valor retornado por um método no template \(mais sobre isso depois\).
+
+Para finalizar essa seção falta entender como o `AppComponent` é apresentado e qual a relação dele com o `AppModule` ou outros componentes do projeto. Para isso, veja o arquivo `./src/index.html`:
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Escola</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+```
+
+Ele é o primeiro arquivo que o Browser acessa, embora não somente com esse conteúdo. Quando o Angular compila o código-fonte ele entrega um pouco mais, veja:
+
+```html
+<!doctype html>
+<html lang="en">
+...
+</head>
+<body>
+  <app-root></app-root>
+  <script type="text/javascript" src="inline.bundle.js"></script>
+  <script type="text/javascript" src="polyfills.bundle.js"></script>
+  <script type="text/javascript" src="styles.bundle.js"></script>
+  <script type="text/javascript" src="vendor.bundle.js"></script>
+  <script type="text/javascript" src="main.bundle.js"></script>
+</body>
+</html>
+```
+
+Esse é um trecho do código-fonte visualizado pelo Browser. Perceba as linhas com elementos `script` antes da tag `</body>`. Esses elementos não estão no código-fonte original, eles foram embutidos aí pelo processo de compilação do Angular \(que foi iniciado quando o script `npm start` foi executado\). Não precisa fazer isso agora \(sério!\) mas em algum momento você vai perceber que o conteúdo daqueles arquivos indicados nos elementos `script` é realmente muito importante porque eles representam o resultado da **tradução de todo o código-fonte do projeto em conteúdo que o Browser consegue interpretar**.
+
+Uma parte importante desse processo é dar capacidade para o Browser identificar o que fazer com um elemento que não é do HTML: veja a linha que contém o elemento `app-root`.
 
