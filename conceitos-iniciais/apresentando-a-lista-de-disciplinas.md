@@ -1,9 +1,14 @@
 # Apresentando a lista de disciplinas
 
-* demonstrar a implementação da primeira funcionalidade, primeiro usando apenas HTML simples
-* demonstrar uso da diretiva ngFor
-* demonstrar uso de eventos \(mostrar detalhes da disciplina ao clicar no item da lista\)
-* demonstrar uso da diretiva ngIf
+> \[info\] **Objetivo do capítulo:**
+>
+> * demonstrar a implementação do requisito "apresentar as disciplinas" de forma iterativa
+> * demonstrar o uso das diretivas `ngFor` e `ngIf`
+> * reforçar o entendimento do Data binding
+
+
+
+
 
 
 
