@@ -66,5 +66,21 @@ Por ser um conteúdo em formato JSON, o interpretamos da seguinte forma:
 * `dependencies`: é o atributo que define as dependências do projeto. Basicamente, as dependências atuais são padrão para software desenvolvido em Angular. Importante notar que o nome de cada atributo determina o pacote \(como `@angular/core`\) e seu valor determina a versão \(como `^5.0.0`, indicando a versão desses pacotes do Angular\)
 * `devDependencies`: é o atributo que define as dependências de desenvolvimeto. São ferramentas que não geram código-fonte que será distribuído junto com o software que está sendo desenvolvido
 
+## Examinando o código-fonte#0
+
+Agora que você já conhece um pouco mais da estrutura do software Angular, do Angular CLI e do npm, vamos dar uma olhada no código-fonte que está gerando o software atual, começando pelo `AppComponent` e seu **Template**, que está no arquivo `./src/app/app.component.html`, cujo trecho de conteúdo é apresentado a seguir.
+
+
+```html
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN...Pg==">
+</div>
+...
+```
+
+
 
 
