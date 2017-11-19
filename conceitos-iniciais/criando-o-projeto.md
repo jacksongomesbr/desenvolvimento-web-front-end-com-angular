@@ -115,7 +115,7 @@ A figura a seguir ilustra a estrutura do `AppComponent`.
 
 Como mostra a figura o componente `AppComponent` é composto por **Template**, **Controller** e **Model**. O Template está definido no arquivo `./src/app/app.component.html`, enquanto o Controller e o Model estão definidos no arquivo `./src/app/app.component.ts`. Template e Controller são mais fáceis de identificar nessa arquitetura. Enquanto o primeiro está no arquivo HTML o segundo é a classe no arquivo TypeScript. Entretanto, onde está o Model? Antes de responder essa pergunta faça um alteração no Controller: altere o valor do atributo `title` para, por exemplo, `'Angular'`.
 
-Se você não tiver interrompido a execução do script `npm start` acontecerá uma recompilação incremental automaticamente e a janela do Browser será recarregada. Na página, o que está logo depois de `Welcome to` ? Isso mesmo, a palavra "Angular". Que mágica é essa? Nenhuma mágica! Vamos olhar novamente o Template, mais de perto:
+Se você não tiver interrompido a execução do script `npm start` acontecerá uma recompilação incremental automaticamente e a janela do Browser será recarregada. Na página, o que está logo depois de `Welcome to` ? Isso mesmo, a palavra "Angular". Que mágica é essa? Nenhuma mágica! Veja novamente o Template, mais de perto:
 
 ```html
 <h1>
@@ -123,7 +123,7 @@ Welcome to {{title}}!
 </h1>
 ```
 
-Nesse momento você já deve ter aprendido que o trecho `{{title}}` é responsável por fazer com que o valor do atributo `title` to Controller apareça no Browser. Isso é resultado do processo de **Data binding**: 
+Nesse momento você já deve ter aprendido que o trecho `{{title}}` é responsável por fazer com que o valor do atributo `title` to Controller apareça no Browser. Isso é resultado do processo de **Data binding**:
 
 * analisa o Controller e identifica métodos e atributos
 * interpreta e analisa o Template e procura por, por exemplo, conteúdo que esteja entre `{{` e `}}`
@@ -176,7 +176,52 @@ Ele é o primeiro arquivo que o Browser acessa, embora não somente com esse con
 </html>
 ```
 
-Esse é um trecho do código-fonte visualizado pelo Browser. Perceba as linhas com elementos `script` antes da tag `</body>`. Esses elementos não estão no código-fonte original, eles foram embutidos aí pelo processo de compilação do Angular \(que foi iniciado quando o script `npm start` foi executado\). Não precisa fazer isso agora \(sério!\) mas em algum momento você vai perceber que o conteúdo daqueles arquivos indicados nos elementos `script` é realmente muito importante porque eles representam o resultado da **tradução de todo o código-fonte do projeto em conteúdo que o Browser consegue interpretar**.
+Esse é um trecho do código-fonte visualizado pelo Browser. Perceba as linhas com elementos `script` antes da tag `</body>`. Esses elementos não estão no código-fonte original, eles foram embutidos aí pelo processo de compilação do Angular \(que foi iniciado quando o script `npm start` foi executado\). Não precisa fazer isso agora \(sério!\) mas em algum momento você vai perceber que o conteúdo daqueles arquivos indicados nos elementos `script` é realmente muito importante porque eles representam o resultado da **tradução de todo o código-fonte do projeto em conteúdo que o Browser consegue interpretar**. Destaque para o arquivo `main.bundle.js`, que contém o conteúdo do arquivo `./src/main.ts` cujo trecho é:
 
-Uma parte importante desse processo é dar capacidade para o Browser identificar o que fazer com um elemento que não é do HTML: veja a linha que contém o elemento `app-root`.
+```
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+...
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+```
+
+O método `platformBrowserDynamic()` retorna um objeto que contém o método `boostrapModule()` que, ao ser executado, recebe como parâmetro a classe `AppModule`, que será utilizada para representar o **root module**. Lembra disso? No capítulo [Iniciando com o Angular](/conceitos-iniciais/iniciando-com-o-angular.md) vimos que o **root module** é o módulo mais importante de todo projeto Angular, porque é o primeiro a ser executado \(agora você deve estar entendendo isso\). 
+
+Certo, então o Angular carrega primeiro o `index.html`, depois usa o `AppModule` como **root module**, mas isso ainda não explica como o `AppComponent` passou a aparecer no Browser. Para entender isso, veja o arquivo `./src/app/app.module.ts`, que define o `AppModule`:
+
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+As três primeiras linhas importam os módulos `BrowserModule` e `NgModule` dos seus respectivos pacotes, bem como a classe `AppComponent`. Como você já sabe, o Angular utiliza **annotation functions** para adicionar metadados a classes. Aqui está sendo utilizada a função `NgModule()` que transforma a classe `AppModule` em um módulo para o Angular. O objeto passado como parâmetro para a função possui características importantes a destacar:
+
+* `declarations`: é um vetor que contém componentes do módulo \(isso mesmo, `AppComponent` está contido no `AppModule`\);
+* `imports`: é um vetor que contém as dependências \(outros módulos\);
+* `bootstrap`: é um vetor que contém os componentes que devem ser utilizados quando uma instância do `AppModule` passar a existir \(isso, indicado ali no arquivo `./src/main.ts`\).
+
+As coisas estão ficando mais conectadas agora e a figura a seguir ilustra isso.
+
+![](/assets/angular-inicial-estrutura-appmodule-appcomponent-index.png)
+
+
+
+Uma parte importante desse processo é dar capacidade para o Browser identificar o que fazer com um elemento que não é do HTML: veja a linha que contém o elemento `app-root`. A seguir, mais uma figura para ilustrar um processo importante.
+
+
 
