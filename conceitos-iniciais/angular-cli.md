@@ -8,7 +8,7 @@
 
 O Angular CLI \(disponível em [https://cli.angular.io](https://cli.angular.io)\) é uma ferramenta para inicializar, desenvolver, criar conteúdo e manter software desenvolvido em Angular. A principal utilização dessa ferramenta começa na criação de um projeto. Você pode fazer isso manualmente, claro, mas lidar com todas as configurações necessárias para o seu software Angular pode não ser algo fácil, mesmo se você for um desenvolvedor com nível de conhecimento médio a avançado.
 
-> \[info\] **cê-ele-i?**
+> \[info\] **cê-éle-í?**
 >
 > Como parte do vocabulário do Angular, geralmente é interessante pronunciar angular cê-ele-i, isso mesmo, CLI é uma sigla para _Command Line Interface_ \(no português Interface de Linha de Comando\). Assim, usar "cli" não é exclusividade alguma do Angular -- provavelmente você verá isso em outros projetos.
 
@@ -40,7 +40,7 @@ Os principais comandos serão apresentados nas seções seguintes.
 
 ### help
 
-O comando `help` é muito importante porque apresenta uma documentação completa do Angular CLI, ou seja, todos os comandos e todas as suas opções. 
+O comando `help` é muito importante porque apresenta uma documentação completa do Angular CLI, ou seja, todos os comandos e todas as suas opções.
 
 **Exemplo: documentação completa**
 
@@ -48,15 +48,15 @@ O comando `help` é muito importante porque apresenta uma documentação complet
 ng help
 ```
 
-Essa linha de comando apresenta todos os comandos e todas as suas opções. 
+Essa linha de comando apresenta todos os comandos e todas as suas opções.
 
-**Exemplo: documentação do comando `new`:**
+**Exemplo: documentação do comando **`new`**:**
 
 ```
 ng help new
 ```
 
-Essa linha de comando apresenta apenas as opções do comando `new`. 
+Essa linha de comando apresenta apenas as opções do comando `new`.
 
 As opções de cada comando são sempre precedidas de `--` \(dois traços\). Algumas opções aceitam um valor e geralmente possuem um valor padrão.
 
@@ -122,9 +122,9 @@ O comando `serve` compila o projeto e inicia um servidor web local. Por padrão 
 
 ### build
 
-O comando `build` compila o projeto, mas não inicia um servidor web local. Ao invés disso, gera os arquivos resultantes da compilação em um diretório indicado. 
+O comando `build` compila o projeto, mas não inicia um servidor web local. Ao invés disso, gera os arquivos resultantes da compilação em um diretório indicado.
 
-Veremos mais sobre esses e outros comando no decorrer do livro. 
+Veremos mais sobre esses e outros comando no decorrer do livro.
 
 > \[info\] **Espera, compilação?**
 >
