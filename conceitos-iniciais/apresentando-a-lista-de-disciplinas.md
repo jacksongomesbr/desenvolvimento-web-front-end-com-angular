@@ -41,7 +41,7 @@ Parte importante do Template está no elemento `li`: o atributo `*ngFor` é, na 
 
 > A diretiva, na verdade mesmo, é chamada `NgForOf`. Usamos uma espécie de atalho por meio do atributo `*ngFor` \(sem mais explicações sobre isso, por enquanto\). Então, ao ler `NgForOf` ou `*ngFor` saiba que estamos falando da mesma coisa.
 
-A diretiva `*ngFor` é utilizada para repetir um elemento do Template. Nesse caso, é justamente essa a sua aplicação: repetir o elemento `li` para apresentar os nomes das disciplinas. A repetição é realizada por uma expressão: `let disciplina of disciplinas` significa que o `*ngFor` vai repetir o elemento `li` para cada item do array `disciplinas` e cada item recebe o nome de `disciplina`. Explicando a mesma coisa de outra forma:
+A diretiva `*ngFor` é utilizada para repetir um elemento do Template. Nesse caso, é justamente essa a sua aplicação: repetir o elemento `li` para apresentar os nomes das disciplinas. A repetição é realizada por uma expressão: `let disciplina of disciplinas` significa que o `*ngFor` vai repetir o elemento `li` para cada item do array `disciplinas` e cada item recebe o nome de `disciplina`, o que demonstra outra utilização do **Data binding**. Explicando a mesma coisa de outra forma:
 
 * a repetição sempre é baseada em uma coleção de itens \(ou em algo que possa ser interpretado como tal\)
 * o Angular cria uma variável de template \(existe apenas dentro do elemento `li`\) com o nome de `disciplina`
