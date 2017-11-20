@@ -153,7 +153,58 @@ A apresentação de todos os dados das disciplinas na tela pode ser melhorada us
 
 Para implementar esses requisitos vamos usar outras recursos do Angular.
 
+Começando pelo Controller do AppComponent são acrescentados:
 
+* o atributo `selecionado`
+* o método `selecionar()`
+
+```
+export class AppComponent {
+  selecionado = null;
+  disciplinas = [
+    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de Língua Portuguesa ' +
+      'é garantir a todos os alunos o acesso aos saberes linguísticos necessários para a ' +
+      'participação social e o exercício da cidadania, pois é por meio da língua que o ser ' +
+      'humano pensa, comunica-se, tem acesso à informação, expressa e defende pontos de ' +
+      'vista, partilha ou constrói visões de mundo e produz conhecimento.'),
+  ...
+  ];
+
+  selecionar(disciplina) {
+    this.selecionado = disciplina;
+  }
+}
+```
+
+O atributo `selecionado` será utilizado para que o Controller saiba qual disciplina o usuário selecionou. O usuário fará isso por meio de uma chamada para o método `selecionar()`, que recebe o parâmetro `disciplina` e o atribui para o atributo `selecionado`.
+
+Para utilizar mais recursos do desenvolvimento front-end, dessa vez também alteramos o arquivo `./src/app/app.component.css`:
+
+```
+.selecionado {
+    font-weight: bold;
+}
+
+li p:nth-child(1) {
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+li p:nth-child(1):hover {
+    font-weight: bold;
+}
+
+li p:nth-child(2) {
+    font-size: 10pt;
+}
+```
+
+O arquivo CSS do AppComponent possui regras de formatação:
+
+* seletor `.selecionado`: para deixar o nome da disciplina selecionada em negrito
+* seletor `li p:nth-child(1)`: para que o cursor do mouse sobre o nome da disciplina seja "pointer" \(semelhante ao comportamento do cursor em links\) e tenha fonte de tamanho 12pt
+* seletor `li p:nth-child(1):hover`: para que o nome da disciplina sob o mouse fique em negrito
+* seletor `li p:nth-child(2)`: para que a fonte da descrição seja de tamanho 10pt
 
 
 
