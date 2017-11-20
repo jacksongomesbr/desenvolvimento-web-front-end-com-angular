@@ -37,7 +37,7 @@ Na sequência altere o Template do `AppComponent` para o seguinte conteúdo:
 </ul>
 ```
 
-Parte importante do Template está no elemento `li`: o atributo `*ngFor` é, na verdade, uma **diretiva estrutural **que modifica o Template no browser, gerando novos elementos com base em uma repetição. 
+Parte importante do Template está no elemento `li`: o atributo `*ngFor` é, na verdade, uma **diretiva estrutural **que modifica o Template no browser, gerando novos elementos com base em uma repetição.
 
 > A diretiva, na verdade mesmo, é chamada `NgForOf`. Usamos uma espécie de atalho por meio do atributo `*ngFor` \(sem mais explicações sobre isso, por enquanto\). Então, ao ler `NgForOf` ou `*ngFor` saiba que estamos falando da mesma coisa.
 
@@ -146,4 +146,14 @@ export class AppComponent {
 ```
 
 Perceba que os elementos do atributo `disciplinas` agora são instâncias da classe `Disciplina`. O mais interessante é que o Template não precisa ser alterado, já que está utilizando objetos com a mesma estrutura de antes, ou seja, espera que os itens do atributo `disciplinas` sejam objetos que tenham os atributos `nome` e `descricao`.
+
+## Adicionando interação com o usuário
+
+A apresentação de todos os dados das disciplinas na tela pode ser melhorada usando interação com o usuário. Suponha que o usuário veja a lista das disciplinas contendo apenas seus nomes; ele deve clicar no nome de uma disciplina para ver sua descrição. Além disso, para dar uma resposta visual para o usuário quando ele clicar no nome da disciplina, considere que será usada uma formatação em negrito.
+
+Para implementar esses requisitos vamos usar outras recursos do Angular.
+
+
+
+
 
