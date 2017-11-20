@@ -1,6 +1,6 @@
 # Apresentando a lista de disciplinas
 
-> \[info\] **Objetivo do capítulo:**
+> **\[info\] Objetivos do capítulo:**
 >
 > * demonstrar a implementação do requisito "apresentar as disciplinas" de forma iterativa
 > * demonstrar o uso das diretivas `ngFor` e `ngIf`
