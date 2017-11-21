@@ -22,12 +22,14 @@ export class AppComponent {
   nome = null;
   descricao = null;
   disciplinas = [
-    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de Língua Portuguesa ' +
-      'é garantir a todos os alunos o acesso aos saberes linguísticos necessários para a ' +
-      'participação social e o exercício da cidadania, pois é por meio da língua que o ser ' +
-      'humano pensa, comunica-se, tem acesso à informação, expressa e defende pontos de ' +
-      'vista, partilha ou constrói visões de mundo e produz conhecimento.'),
-    ...
+    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de ' +
+      'Língua Portuguesa é garantir a todos os alunos o acesso aos saberes ' +
+      'linguísticos necessários para a participação social e o exercício da ' +
+      'cidadania, pois é por meio da língua que o ser ' +
+      'humano pensa, comunica-se, tem acesso à informação, expressa e ' +
+      'defende pontos de vista, partilha ou constrói visões de mundo e ' +
+      'produz conhecimento.'),
+      ...
   ];
 
   salvar() {
@@ -52,7 +54,6 @@ Mas... o que significa um atributo do Controller estar ligado a um campo do form
 ```html
 <h1>Disciplinas</h1>
 ...
-
 <h2>Cadastrar</h2>
 <p>Use este formulário para cadastrar uma disciplina.</p>
 <form #cadastro="ngForm" (submit)="salvar()">
@@ -62,10 +63,13 @@ Mas... o que significa um atributo do Controller estar ligado a um campo do form
     </div>
     <div>
         <label for="descricao">Descrição</label><br>
-        <textarea id="descricao" name="descricao" [(ngModel)]="descricao" cols="70" rows="5">
+        <textarea id="descricao" name="descricao" [(ngModel)]="descricao"
+                  cols="70" rows="5">
         </textarea>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!cadastro.valid">Salvar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!cadastro.valid">
+        Salvar
+    </button>
 </form>
 ```
 
