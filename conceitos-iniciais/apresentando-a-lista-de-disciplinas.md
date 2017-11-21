@@ -122,7 +122,7 @@ Para utilizar mais recursos do TypeScript, a classe `Disciplina` possui dois atr
 
 Para usar a classe `Disciplina`, modifique o Controller do `AppComponent`:
 
-```
+```typescript
 import {Component} from '@angular/core';
 import {Disciplina} from './disciplina.model';
 ...
