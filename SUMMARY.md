@@ -11,5 +11,6 @@
 * [Apresentando a lista de disciplinas](conceitos-iniciais/apresentando-a-lista-de-disciplinas.md)
 * [Cadastrando uma disciplina](cadastrando-uma-disciplina.md)
 * [Excluindo uma disciplina](excluindo-uma-disciplina.md)
+* [Editando dados de uma disciplina](conceitos-iniciais/editando-dados-de-uma-disciplina.md)
 * [Melhorando a interface com Bootstrap](conceitos-iniciais/melhorando-a-interface-com-bootstrap.md)
 
