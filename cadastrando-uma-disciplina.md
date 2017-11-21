@@ -74,9 +74,11 @@ Como a parte da lista das disciplinas não muda muito, vamos omitir essa parte e
 Na sequência são definidos os campos do formulário. A parte mais importante está nas `tags` input e `textarea`, principalmente o que, em termos de HTML, parece um atributo: `[(ngModel)]`. Você já sabe a sintaxe para eventos \(entre parênteses\) e já viu que o Angular consegue alterar um atributo do HTML por meio de colchetes. Essa sintaxe, que mistura as duas anteriores, é a sintaxe do recurso **two-way data binding**. No campo para o nome, `[(ngModel)]` tem o valor `nome`, para o campo descrição, tem o valor `descricao`. Ambos são atributos do Controller. Assim, o **two-way data binding** significa que o valor do atributo pode ser modificado por meio de uma alteração do campo de formulário correspondente, e vice-versa:
 
 * se o valor do atributo `nome` for modificado no Controller, o Template será atualizado, mostrando esse valor no `input`
-* se o valor do atributo `nome` for modificado no Template, esse valor estará disponível no Controller
+* se o valor do atributo `nome` for modificado no Template, por uma alteração no `input`, esse valor estará disponível no Controller
 
-Por isso o **two-way: duas vias**.
+Por isso o **two-way: duas vias**. A figura a seguir ilustra esse processo.
+
+![Ilustração do two-way data binding, ligando formulário e Controller](/assets/formularios-two-way-data-binding.png)
 
 O formulário tem mais uma característica: a entrada do usuário está passando por validação. O elemento `input` para o campo nome tem o atributo `required`, que o torna de preenchimento obrigatório. A partir de então há um comportamento muito interessante para o botão "Salvar": o elemento button possui um atributo `disabled`, que é modificado conforme a expressão `!cadastro.valid`. Lembra da variável de template `#cadastro`? Aqui ela é usada como uma referência ao formulário. Portanto, se o formulário de cadastro estiver válido, o botão "Salvar" estará habilitado para clique. Caso contrário, estará desabilitado.
 
@@ -84,7 +86,9 @@ Execute o software no browser para notar o comportamento citado no capítulo.
 
 > **\[info\] Resumo do capítulo:**
 >
-> *
+> * Implementamos o requisito "Cadastrar uma disciplina"
+> * Utilizamos o recurso two-way data binding
+> * Utilizamos formulário para receber entrada do usuário
 
 
 
