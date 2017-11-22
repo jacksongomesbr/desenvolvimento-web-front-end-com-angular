@@ -5,6 +5,8 @@
 > * demonstrar a implementação do requisito "apresentar as disciplinas" de forma iterativa
 > * demonstrar o uso das diretivas `ngFor` e `ngIf`
 > * reforçar o entendimento do Data binding
+>
+> **Branches**: [livro-listando-disciplinas](https://github.com/jacksongomesbr/angular-escola/tree/livro-listando-disciplinas), [livro-listando-disciplinas-objetos](https://github.com/jacksongomesbr/angular-escola/tree/livro-listando-disciplinas-objetos), [livro-listando-disciplinas-classes](https://github.com/jacksongomesbr/angular-escola/tree/livro-listando-disciplinas-classes), [livro-listando-disciplinas-interacao](https://github.com/jacksongomesbr/angular-escola/tree/livro-listando-disciplinas-interacao)
 
 Começando pelo Controller do `AppComponent`, remova o atributo `title` e adicione o atributo `disciplinas`. Esse atributo é um array de string, contendo os nomes das disciplinas. O conteúdo do Controller deve ficar mais ou menos assim \(trecho\):
 
@@ -62,25 +64,21 @@ A utilização de um array de strings pode ser suficiente em vários casos. Entr
 Modifique o Controller do `AppComponent` para que cada item do array `disciplinas` seja um objeto com dois atributos: `nome` e `descricao`, como mostra o trecho de código a seguir.
 
 ```typescript
+...
 export class AppComponent {
   disciplinas = [
     {
       nome: 'Língua Portuguesa',
-      descricao: 'O objetivo norteador da BNCC de Língua Portuguesa é garantir a todos os alunos o acesso aos saberes ' +
-      'linguísticos necessários para a participação social e o exercício da cidadania, pois é por meio da língua que ' +
-      'o ser humano pensa, comunica-se, tem acesso à informação, expressa e defende pontos de vista, partilha ou ' +
+      descricao: 'O objetivo norteador da BNCC de Língua Portuguesa é ' +
+      'garantir a todos os alunos o acesso aos saberes ' +
+      'linguísticos necessários para a participação social e o exercício ' +
+      'da cidadania, pois é por meio da língua que ' +
+      'o ser humano pensa, comunica-se, tem acesso à informação, expressa ' +
+      'e defende pontos de vista, partilha ou ' +
       'constrói visões de mundo e produz conhecimento.'
     },
-    {
-      nome: 'Arte',
-      descricao: 'A Arte é uma área do conhecimento e patrimônio histórico e cultural da humanidade. No Ensino ' +
-      'Fundamental, o componente curricular está centrado em algumas de suas linguagens: as Artes visuais, a Dança, ' +
-      'a Música e o Teatro. Essas linguagens articulam saberes referentes a produtos e fenômenos artísticos e ' +
-      'envolvem as práticas de criar, ler, produzir, construir, exteriorizar e refletir sobre formas artísticas. ' +
-      'A sensibilidade, a intuição, o pensamento, as emoções e as subjetividades se manifestam como formas de ' +
-      'expressão no processo de aprendizagem em Arte. '
-    },
-  ...
+    ...
+  ];
 }
 ```
 
@@ -128,18 +126,8 @@ import {Disciplina} from './disciplina.model';
 ...
 export class AppComponent {
   disciplinas = [
-    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de Língua Portuguesa ' +
-      'é garantir a todos os alunos o acesso aos saberes linguísticos necessários para a ' +
-      'participação social e o exercício da cidadania, pois é por meio da língua que o ser ' +
-      'humano pensa, comunica-se, tem acesso à informação, expressa e defende pontos de ' +
-      'vista, partilha ou constrói visões de mundo e produz conhecimento.'),
-    new Disciplina('Educação Física', 'A Educação Física é o componente curricular ' +
-      'que tematiza as práticas corporais em suas diversas formas de codificação e ' +
-      'significação social, entendidas como manifestações das possibilidades ' +
-      'expressivas dos sujeitos e patrimônio cultural da humanidade. Nessa concepção, ' +
-      'o movimento humano está sempre inserido no âmbito da cultura e não se limita a ' +
-      'um deslocamento espaço-temporal de um segmento corporal ou de um corpo todo. ' +
-      'Logo, as práticas corporais são textos culturais passíveis de leitura e produção.'),
+    new Disciplina('Língua Portuguesa', 'O objetivo norteador ...'),
+    new Disciplina('Educação Física', 'A Educação Física é ...'),
     ...
   ];
 }
@@ -158,15 +146,11 @@ Começando pelo Controller do `AppComponent` são acrescentados:
 * o atributo `selecionado`
 * o método `selecionar()`
 
-```
+```typescript
 export class AppComponent {
   selecionado = null;
   disciplinas = [
-    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de Língua Portuguesa ' +
-      'é garantir a todos os alunos o acesso aos saberes linguísticos necessários para a ' +
-      'participação social e o exercício da cidadania, pois é por meio da língua que o ser ' +
-      'humano pensa, comunica-se, tem acesso à informação, expressa e defende pontos de ' +
-      'vista, partilha ou constrói visões de mundo e produz conhecimento.'),
+    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC ...'),
   ...
   ];
 
@@ -267,7 +251,7 @@ Se você já tiver programado para front-end anteriormente vai entender melhor a
 
 Por fim, a figura a seguir ilustra o funcionando do software no browser.
 
-![](/assets/software-listando-disciplinas-interacao-browser.png)
+![Execução do software no browser, listando disciplinas e interagindo com o usuário](/assets/software-listando-disciplinas-interacao-browser.png)
 
 Pronto, esse capítulo mostrou a utilização de vários recursos do Angular para implementar o requisito "Apresentar a lista das disciplinas".
 

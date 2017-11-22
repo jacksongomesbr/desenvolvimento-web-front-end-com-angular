@@ -3,6 +3,8 @@
 > **\[info\] Objetivos do capítulo:**
 >
 > * demonstrar a implementação do requisito "Excluir uma disciplina"
+>
+> **Branch**: [livro-excluindo-disciplina](https://github.com/jacksongomesbr/angular-escola/tree/livro-excluindo-disciplina)
 
 Este é um capítulo mais simples. Basicamente os recursos utilizados já foram apresentados, então ele é mais curto.
 
@@ -63,7 +65,7 @@ A parte importante do template é o elemento `button` ao lado do nome da discipl
 
 O resultado da execução do software no browser é ilustrado pela figura a seguir.
 
-![](/assets/software-excluindo-disciplina-browser.png)
+![Execução do software no browser ilustrando a confirmação do usuário para excluir uma disciplina](/assets/software-excluindo-disciplina-browser.png)
 
 Esse capitulo é bem curto e não há muito o que resumir, mas é bom notar que os conceitos vistos nos capítulos anteriores continuam funcionando aqui, mesmo que em aplicações diferentes.
 

@@ -1,10 +1,12 @@
 # Editando dados de uma disciplina
 
-> \[info\] Objetivos do capítulo:
+> **\[info\] Objetivos do capítulo:**
 >
 > * demonstrar a implementação do requisito "Editar dados de uma disciplina"
 > * reforçar os conceitos anteriores
 > * demonstrar a implementação mais completa de um CRUD
+>
+> **Branch:** [livro-crud-disciplina](https://github.com/jacksongomesbr/angular-escola/tree/livro-crud-disciplina)
 
 Como o capítulo anterior, esse capítulo não é muito extenso em termos de conceitos novos. Entretanto, ele reúne os capítulos anteriores para implementar um CRUD, que significa:
 
@@ -130,11 +132,10 @@ Para concluir, o Template:
 
 Para ilustrar a interface completa, a figura a seguir ilustra o processo da interface CRUD para Disciplina.
 
-![](/assets/software-modelo-crud-template-component.png)
+![Relações entre os elementos do Template e do Controller](/assets/software-modelo-crud-template-component.png)
 
 
-
-A figura tenta demonstrar as relações entre os vários elementos do Template e do Controller. Como ela resume os conceitos visto neste e nos quatro capítulos anteriores, se você chegou aqui e está um pouco perdido, não se preocupe, pode acontecer, estude-a por mais tempo e, se necessário, volte nos passos anteriores.
+A figura demonstra as várias relações entre os elementos do Template e do Controller. Como ela resume os conceitos vistos neste e nos quatro capítulos anteriores, se você chegou aqui e está um pouco perdido, não se preocupe, pode acontecer. Reserve um pouco mais de tempo para estudar a figura e o código-fonte e, se necessário, volte nos capítulos anteriores.
 
 O conjunto de funcionalidades implementadas até aqui demonstram vários recursos do Angular, mas a interface gráfica não é das melhores. No próximo capítulo vamos aprender como melhorar o aspecto visual do software.
 

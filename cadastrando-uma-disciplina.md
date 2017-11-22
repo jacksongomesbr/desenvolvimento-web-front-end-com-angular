@@ -4,8 +4,10 @@
 >
 > * demonstrar o uso de formulários e _two-way data binding_
 > * implementar o requisito "Cadastrar disciplina"
+>
+> **Branches**: [livro-cadastrando-disciplina](https://github.com/jacksongomesbr/angular-escola/tree/livro-cadastrando-disciplina)
 
-Neste capítulo vamos começar pelo inverso: primeiro, o aplicativo, ao final do capítulo, estará como ilustra a figura a seguir.
+Neste capítulo vamos começar pelo final: primeiro, veja a figura que ilustra como o software estará ao final do capítulo.
 
 ![Tela do software apresentando a lista das disciplinas e o formulário de cadastro](/assets/software-cadastrando-disciplina-browser.png)
 
@@ -46,13 +48,7 @@ export class AppComponent {
   nome = null;
   descricao = null;
   disciplinas = [
-    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de ' +
-      'Língua Portuguesa é garantir a todos os alunos o acesso aos saberes ' +
-      'linguísticos necessários para a participação social e o exercício da ' +
-      'cidadania, pois é por meio da língua que o ser ' +
-      'humano pensa, comunica-se, tem acesso à informação, expressa e ' +
-      'defende pontos de vista, partilha ou constrói visões de mundo e ' +
-      'produz conhecimento.'),
+    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de ...'),
       ...
   ];
 

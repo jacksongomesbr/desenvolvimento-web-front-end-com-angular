@@ -1,6 +1,6 @@
 # Software de gerenciamento escolar
 
-> \[info\] **Objetivo do capítulo:**
+> **\[info\] Objetivo do capítulo:**
 >
 > * apresentar informações sobre gerenciamento escolar
 > * apresentar requisitos do software de gerenciamento escolar
@@ -43,21 +43,13 @@ No contexto desse livro o gerenciamento escolar é aplicado em uma escola fictí
 
 Para ilustrar esse contexto, alguns exemplos de estruturas curriculares:
 
-**Estrutura curricular do Ensino Fundamental - 1º ao 5º ano**
+![Exemplo de estrutura curricular do Ensino Médio - 1º ao 5º ano](/assets/escola-estrutura-curricular-1-5.png)
 
-![](/assets/escola-estrutura-curricular-1-5.png)
+![Exemplo de estrutura do Ensino Fundamental - 6º ao 9º ano](/assets/escola-estrutura-curricular-6-9.png)
 
-**Estrutura curricular do Ensino Fundamental - 6º ao 9º ano**
+![Exemplo de Estrutura curricular do Ensino Médio](/assets/escola-estrutura-curricular-medio.png)
 
-![](/assets/escola-estrutura-curricular-6-9.png)
-
-**Estrutura curricular do Ensino Médio**
-
-![](/assets/escola-estrutura-curricular-medio.png)
-
-**Estrutura curricular do Ensino Infantil**
-
-![](/assets/escola-estrutura-ensino-infantil.png)
+![Exemplo de Estrutura curricular do Ensino Infantil](/assets/escola-estrutura-ensino-infantil.png)
 
 ## Gerenciamento escolar
 

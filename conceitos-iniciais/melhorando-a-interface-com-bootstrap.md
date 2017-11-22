@@ -5,8 +5,10 @@
 > * demonstrar a melhoria da lista de disciplinas utilizando tabelas
 > * apresentar o Bootstrap como framework front-end
 > * demonstrar a utilização do Bootstrap para melhorar o aspecto visual geral do software
+>
+> **Branches**: [livro-crud-disciplinas-tabelas](https://github.com/jacksongomesbr/angular-escola/tree/livro-crud-disciplinas-tabelas) e [livro-crud-disciplinas-bootstrap](https://github.com/jacksongomesbr/angular-escola/tree/livro-crud-disciplinas-bootstrap)
 
-Não se preocupe. Eu concordo contigo. Um software pode até funcionar muito bem, mas o visual descuidado certamente tira alguns pontos de qualquer avaliação. Por isso, vamos começar a melhorar o aspecto visual do CRUD de disciplinas construído até aqui em dois passos. Primeiro, vamos usar tabelas para melhorar a apresentação da lista de disciplinas.
+Eu concordo contigo. Um software pode até funcionar muito bem, mas o visual descuidado certamente tira alguns pontos de qualquer avaliação. Por isso, vamos começar a melhorar o aspecto visual do CRUD de disciplinas construído até aqui em dois passos. Primeiro, vamos usar tabelas para melhorar a apresentação da lista de disciplinas.
 
 O código-fonte do Controller não precisa ser alterado, apenas do Template. Vamos aos trechos mais importantes:
 
@@ -41,7 +43,7 @@ O código-fonte do Controller não precisa ser alterado, apenas do Template. Vam
 
 O diferencial até aqui é a utilização de tabelas \(elemento `table`\) para a apresentação da lista de tabelas. Perceba que a diretiva `*ngFor` foi aplicada no elemento `tr` do `tbody`. O resultado da execução do software é ilustrado pela figura a seguir.
 
-![](/assets/software-crud-disciplinas-com-tables-browser.png)
+![Execução do software no browser demonstrando o uso de tabelas para apresentar a lista das disciplinas](/assets/software-crud-disciplinas-com-tables-browser.png)
 
 Perceba que o fato de utilizar tabelas torna a exibição da lista de disciplinas mais visualmente confortável, já que os elementos estão alinhados adequadamente.
 

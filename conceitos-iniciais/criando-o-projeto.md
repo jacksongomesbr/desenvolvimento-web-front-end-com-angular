@@ -1,9 +1,11 @@
 # Criando o projeto
 
-> \[info\] Objetivos do capítulo:
+> **\[info\] Objetivos do capítulo:**
 >
 > * demonstrar como utilizar o Angular CLI para criar o projeto **angular-escola**
 > * apresentar os requisitos de software que serão implementados no capítulo
+>
+> **Branch**: [iniciando](https://github.com/jacksongomesbr/angular-escola/tree/iniciando)
 
 O capítulo [Angular CLI](/conceitos-iniciais/angular-cli.md) apresentou essa ferramenta, comandos e opções. A primeira utilização da ferramenta está na criação do projeto com o comando:
 

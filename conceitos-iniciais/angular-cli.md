@@ -1,6 +1,6 @@
 # Angular CLI
 
-> \[info\] **Objetivos do capítulo**:
+> **\[info\] Objetivos do capítulo**:
 >
 > * apresentar o Angular CLI
 > * apresentar comandos para criação de projetos, módulos, componentes e outros elementos
@@ -8,7 +8,7 @@
 
 O Angular CLI \(disponível em [https://cli.angular.io](https://cli.angular.io)\) é uma ferramenta para inicializar, desenvolver, criar conteúdo e manter software desenvolvido em Angular. A principal utilização dessa ferramenta começa na criação de um projeto. Você pode fazer isso manualmente, claro, mas lidar com todas as configurações necessárias para o seu software Angular pode não ser algo fácil, mesmo se você for um desenvolvedor com nível de conhecimento médio a avançado.
 
-> \[info\] **cê-éle-í?**
+> **\[info\] cê-éle-í?**
 >
 > Como parte do vocabulário do Angular, geralmente é interessante pronunciar angular cê-ele-i, isso mesmo, CLI é uma sigla para _Command Line Interface_ \(no português Interface de Linha de Comando\). Assim, usar "cli" não é exclusividade alguma do Angular -- provavelmente você verá isso em outros projetos.
 
@@ -26,7 +26,7 @@ npm install -g @angular/cli
 
 Isso fará uma instalação global do Angular CLI \(por isso o `-g` na linha de comando\) e disponibilizará o programa `ng`.
 
-> \[warning\] **Problemas na instalação?**
+> **\[warning\] Problemas na instalação?**
 >
 > Podem acontecer certos problemas na instalação do Angular CLI. Por exemplo, você pode estar com uma versão bem desatualizada do NodeJS e do npm. Assim, garanta sempre que seu ambiente de desenvolvimento esteja com as versões corretas desses programas.
 >
@@ -126,11 +126,11 @@ O comando `build` compila o projeto, mas não inicia um servidor web local. Ao i
 
 Veremos mais sobre esses e outros comando no decorrer do livro.
 
-> \[info\] **Espera, compilação?**
+> **\[info\] Espera, compilação?**
 >
 > Como já disse, você pode utilizar JavaScript ou TypeScript ao desenvolver projetos Angular. Isso não é bem assim. Na prática, geralmente você encontrará a recomendação \(senão uma ordem\) de utilizar TypeScript. O problema é que seu Browser não entende TypeScript, por isso é necessário um processo de tradução do código TypeScript para JavaScript. E não é só isso. Há vários recursos utilizados no projeto Angular criado com TypeScript que precisam de ajustes para que funcionem no seu Browser.
 >
-> Por isso os comandos `serve` e `build` são tão importantes e, por que não dizer, **browser-friendly** =\)
+> Por isso os comandos `serve` e `build` são tão importantes e -- por que não dizer? -- **browser-friendly** =\)
 
 
 
