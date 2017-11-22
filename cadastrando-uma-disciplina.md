@@ -11,6 +11,30 @@ Neste capítulo vamos começar pelo inverso: primeiro, o aplicativo, ao final do
 
 A tela do aplicativo tem duas funções: na primeira parte, apresenta a lista das disciplinas; na segunda parte, apresenta um formulário que permite o cadastro de uma disciplina. A primeira parte você já conhece do capítulo anterior. Agora, veremos os detalhes para o formulário de cadastro.
 
+Antes de prosseguir, um fator importante: o projeto original criado pelo Angular CLI não suporta formulários. Isso mesmo que você leu. O Angular trata formulários de três formas diferentes, uma delas, a que vamos utilizar, chamada de **template driven forms** \(algo como formuários orientados a templates\).
+
+Para habilitar o suporte a formulários é necessário importar o módulo `FormsModule` no **root module**:
+
+```typescript
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {AppComponent} from './app.component';
+
+@NgModule({
+  ...
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  ...
+})
+export class AppModule {
+}
+```
+
+O módulo `FormsModule` está definido no pacote `@angular/forms` e é importado no `AppModule` por meio do atributo `imports` dos metadados da classe. A partir de então a utilização de formulários do tipo **template-driven forms** está garantida.
+
 O formulário de cadastro tem dois campos: nome e descrição. O comportamento esperado pelo usuário é preencher os valores dos campos, clicar no botão "Salvar" e ver a lista de disciplinas atualizada, contendo a disciplina que acabou de ser cadastrada.
 
 Para fazer isso, primeiro vamos ao Controller do `AppComponent`:
