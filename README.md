@@ -10,7 +10,7 @@ Como o Angular é um projeto em constante desenvolvimento \(pelo menos até agor
 
 ## Código-fonte
 
-O software Angular Escola, que serve como apoio para este livro está disponível gratuitamente no Github: [https://github.com/jacksongomesbr/angular-escola](https://github.com/jacksongomesbr/angular-escola). O repositório provê branches que demonstram a evolução do desenvolvimento do software na mesma ordem dos capítulos do livro. Cada capítulo, se necessário, indica qual branch utilizar.
+O software _Angular Escola_, que serve como apoio para este livro está disponível gratuitamente no Github: [https://github.com/jacksongomesbr/angular-escola](https://github.com/jacksongomesbr/angular-escola). O repositório provê branches que demonstram a evolução do desenvolvimento do software na mesma ordem dos capítulos do livro. Cada capítulo, se necessário, indica qual branch utilizar.
 
 ## Dependências
 
@@ -22,6 +22,21 @@ Para utilizar o código-fonte do livro e desenvolver em Angular você precisa, a
    1. **VisualStudioCode**: disponível em [https://code.visualstudio.com/](https://code.visualstudio.com/)
    2. **Nodepad++**: disponível em [https://notepad-plus-plus.org/](https://notepad-plus-plus.org/) 
    3. **PHPStorm **ou **WebStorm**: disponíveis em [https://www.jetbrains.com](https://www.jetbrains.com)
+
+## Visão geral
+
+A tabela a seguir apresenta uma visão geral dos conceitos apresentados ou discutidos em cada capítulo do livro.
+
+| Capítulo | Conteúdos |
+| :--- | :--- |
+| [Iniciando com o Angular](/conceitos-iniciais/iniciando-com-o-angular.md) | Arquitetura do Angular; Elementos da Arquitetura do Angular \(ex.: módulos e componentes\) |
+| [Angular CLI](/conceitos-iniciais/angular-cli.md) | Ferramenta Angular CLI; Comandos |
+| [Criando o projeto](/conceitos-iniciais/criando-o-projeto.md) | Ferramenta Angular CLI; Comando new |
+| [Apresentando a lista de disciplinas](/conceitos-iniciais/apresentando-a-lista-de-disciplinas.md) | Data binding; Diretivas; Eventos |
+| [Cadastrando uma disciplina](/cadastrando-uma-disciplina.md) | Formulários; Two-way Data binding; Eventos |
+| [Excluindo uma disciplina](/excluindo-uma-disciplina.md) | Two-way Data Binding; Eventos |
+| [Editando dados de uma disciplina](/conceitos-iniciais/editando-dados-de-uma-disciplina.md) | Formulários; Two-way Data Binding; Eventos |
+| [Melhorando a interface gráfica do CRUD de disciplinas](/conceitos-iniciais/melhorando-a-interface-com-bootstrap.md) | Formulários; Data Binding; Eventos; Bootstrap; Font Awesome |
 
 
 
