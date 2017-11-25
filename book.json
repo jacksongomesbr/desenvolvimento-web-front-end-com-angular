@@ -1,5 +1,5 @@
 {
-    "plugins": ["anchors", "url-embed", "image-captions", "page-numbering", "alerts"],
+    "plugins": ["anchors", "url-embed", "image-captions", "page-numbering", "alerts", "plantuml-cloud"],
     "pluginsConfig": {
       "image-captions": {
         "variable_name": "pictures",
