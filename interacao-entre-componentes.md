@@ -169,11 +169,9 @@ Por fim, a sintaxe que tem um atributo HTML com nome entre parênteses você tam
 
 A figura a seguir procura resumir todas as informações apresentadas até aqui e procura demonstrar a interação entre os componentes **App** e **ListaDeDisciplinas**.
 
-![](/assets/software-componentes-app-listadedisciplinas.png)
+![Interações entre os componentes App e ListaDeDisciplinas](/assets/software-componentes-app-listadedisciplinas.png)
 
 O repositório [livro-componentes-editor](#) ainda fornece mais um nível de criação de componentes, demonstrando o código para o componente EditorDeDisciplina, que fornece um formulário para cadastro e para edição de uma disciplina. Fica como exercício para fixação da aprendizagem o estudo do código desse repositório.
-
-
 
 > **\[info\] Resumo do capítulo:**
 >
