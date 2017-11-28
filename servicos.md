@@ -51,7 +51,7 @@ export class DisciplinasService {
 }
 ```
 
-Novamente, um serviço é uma classe. A diferença está na anotação `@Injectable()`. É ela que instrui o Angular a considerar a classe `DisciplinasService` como um serviço -- pois é, não há uma anotação com nome parecido com _@Service\(\)_ =\.
+Novamente, um serviço é uma classe. A diferença está na anotação `@Injectable()`. É ela que instrui o Angular a considerar a classe `DisciplinasService` como um serviço -- pois é, não há uma anotação com nome parecido com _@Service\(\)_ =.
 
 Então, vamos adicionar funcionalidades nesse serviço:
 
