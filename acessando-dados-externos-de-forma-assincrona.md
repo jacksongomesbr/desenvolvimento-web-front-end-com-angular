@@ -86,7 +86,7 @@ Bem, antes de prosseguirmos com a leitura do código, é importante detalhar o c
 
 ![Ilustração do processo de requisição assíncrona](https://www.planttext.com/plantuml/img/VP0z3i8m38NtdC8Z35GLwiI0g13Y07HaiHeFGQaDJjg1wt0BLYw6GVmAYSZAak-zb-T5ogYvxw9ponY8Cy5a3XlI8NZH6QnN3VYGsh2FWJ4LkoJidi_VQ6DgX2Wjnd141G6bjjSaiELV3umPQZtqOH0WReMpeXSOJSjoxC3EPyZZQpEuSNGv6sY33_cFDyL4BtE-dBuJghBwav2eUwSuOk-Aee3Qj5R4atMoQu-AztvPb0MCS6vXhEtn2W00)
 
-A figura demonstra que o Cliente faz uma requisição HTTP para o Servidor \(GET\) que busca pelo arquivo solicitado. Conforme a situação o Servidor retorna uma de duas respostas possíveis para o Cliente:
+A figura demonstra que o Cliente faz uma requisição HTTP para o Servidor \(usando o verbo GET do HTTP\) que busca pelo arquivo solicitado. Conforme a situação o Servidor retorna uma de duas respostas possíveis para o Cliente:
 
 * **código 200**: o arquivo foi encontrado, então retorna o conteúdo dele
 * **código 404**: o arquivo não foi encontrador, então não há conteúdo no retorno
@@ -108,14 +108,14 @@ No contexto do código o método `get()` cria uma instância de `Observable`. Pa
 
 No caso do código do serviço `DisciplinasService` apenas o primeiro parâmetro está sendo utilizado, o que ilustrado pela figura a seguir.
 
-![Ilustração da composição de uma função callback para o método subscribe()](/assets/httpclient-observer-subscribe-callback.png)
+![Ilustração da composição de uma função callback para o método subscribe\(\)](/assets/httpclient-observer-subscribe-callback.png)
 
 A sintaxe utilizada é conhecida como **arrow function** \(função seta\) e, por ser uma função, tem duas partes:
 
 * parâmetros; e 
 * corpo.
 
-Se a lista de parâmetros for vazia, pode-se usar apenas `()`. 
+Se a lista de parâmetros for vazia, pode-se usar apenas `()`.
 
 Voltando ao código do serviço `DisciplinasService` a função callback de sucesso para a chamada de `subscribe()` atribui o parâmetro disciplinas \(a lista de disciplinas retornada pelo servidor já em formato de objetos\) para o atributo da classe de mesmo nome.
 
