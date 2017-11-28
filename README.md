@@ -37,6 +37,7 @@ A tabela a seguir apresenta uma visão geral dos conceitos apresentados ou discu
 | [Excluindo uma disciplina](/excluindo-uma-disciplina.md) | Two-way Data Binding; Eventos |
 | [Editando dados de uma disciplina](/conceitos-iniciais/editando-dados-de-uma-disciplina.md) | Formulários; Two-way Data Binding; Eventos |
 | [Melhorando a interface gráfica do CRUD de disciplinas](/conceitos-iniciais/melhorando-a-interface-com-bootstrap.md) | Formulários; Data Binding; Eventos; Bootstrap; Font Awesome |
+| [Interação entre componentes](/interacao-entre-componentes.md) | Criação de componentes; Input e Output para interação entre componentes |
 
 
 
