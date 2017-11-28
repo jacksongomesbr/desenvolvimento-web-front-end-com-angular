@@ -1,16 +1,19 @@
 # Acessando dados externos de forma assíncrona
 
-> Objetivos do capítulo:
+> **\[info\] Objetivos do capítulo:**
 >
-> * demonstrar o uso do HttpClient para acessar dados externos \(arquivo JSON, API REST\)
+> * demonstrar a representação de dados em arquivos JSON
+> * demonstrar o uso do HttpClient para acessar dados externos \(arquivo JSON\)
+> * apresentar o padrão Observer e explicar seu funcionamento
+> * apresentar a comunicação entre componentes do software usando diagrama de sequência da UML
+>
+> **Branch**: [livro-dados-externos-json](https://github.com/jacksongomesbr/angular-escola/tree/livro-dados-externos-json)
 
 Até o capítulo anterior \([Serviços](/servicos.md)\) a estrutura do software já começa a ficar mais modular. Para prosseguir nessa direção uma modificação importante é trabalhar com fontes de dados. Por enquanto, vamos utilizar um mecanismo simples, mas muito eficiente.
 
-O serviço DisciplinasService possui um atributo disciplinas que contém um array de objetos. Embora o software esteja funcional o array de objetos é definido diretamente no código-fonte. Isso faz com que, toda vez que houver uma modificação na lista, seja necessário compilar o software novamente, o que não é interessante.
+O serviço `DisciplinasService` possui um atributo `disciplinas`, que contém um array de objetos. Embora o software esteja funcional o array de objetos é definido diretamente no código-fonte, o que pode ser melhorado. A prática mais adequada é separar as coisas: de um lado o software, do outro a **fonte de dados**.
 
-A prática mais adequada é separar as coisas: de um lado o software, do outro a fonte de dados.
-
-Nesse capítulo vamos usar duas estratégias para armazenar a lista das disciplinas. Primeiro, utilizando JSON.
+Uma fonte de dados é um conceito abstrato que pode ser representado por um arquivo de texto, JSON ou um banco de dados, por exemplo. Aqui, usaremos um arquivo em formato JSON.
 
 O arquivo `./src/assets/dados/disciplinas.json` contém a lista das disciplinas:
 
@@ -30,7 +33,7 @@ O arquivo `./src/assets/dados/disciplinas.json` contém a lista das disciplinas:
 ]
 ```
 
-Para acessar os dados de arquivos JSON o Angular disponibiliza o módulo `HttpClientModule`, que precisa, primeiro, ser importado no **root module**:
+Para acessar os dados de arquivos JSON é necessário realizar requisições HTTP para um servidor web. Se você estiver executando o projeto em modo de desenvolvimento, o servidor já disponibilizado pelo Angular CLI para desenvolvimento será utilizado tanto para servir o conteúdo do software quanto fornecer acesso ao arquivo JSON. Para isso o Angular disponibiliza o módulo `HttpClientModule`, que precisa, primeiro, ser importado no **root module**:
 
 ```typescript
 ...
@@ -78,11 +81,11 @@ export class DisciplinasService {
 }
 ```
 
-A primeira modificação no código do serviço é a injeção de dependência de um `HttpClient`, uma classe do módulo `HttpClientModule` que fornece métodos apropriados para realizar requisições HTTP assíncronas. A classe `HttpClient` fornece o método `get()`, que é utilizado para realizar uma requisição GET. O parâmetro informado para o método `get()` é uma URL que, nesse caso, corresponde ao caminho para o arquivo `disciplinas.json`.
+A primeira modificação no código do serviço é a injeção de dependência de um `HttpClient`, uma classe do módulo `HttpClientModule` que fornece métodos apropriados para realizar requisições HTTP assíncronas. A classe `HttpClient` fornece o método `get()`, que é utilizado para realizar uma requisição HTTP GET. O parâmetro informado para o método `get()` é uma URL que, nesse caso, corresponde ao caminho para o arquivo `disciplinas.json`.
 
-A classe `HttpClient` é usada efetivamente no método `carregarDados()`, que aceita como parâmetro uma **função callback** que deverá ser executada quando o carregamento dos dados for concluído. Esse comportamento é uma estratégia para carregar os dados de uma vez, como um array de disciplinas, mantendo uma referência para esse array no atributo `DisciplinasSservice.disciplinas` e também no atributo `AppComponent.disciplinas`. Isso acontece porque a forma de acesso à lista de disciplinas, até o momento, não permite alterar seu conteúdo de forma persistente, ou seja, salvando os dados.
+A classe `HttpClient` é usada efetivamente no método `carregarDados()`, que aceita como parâmetro uma **função callback** que deverá ser executada quando o carregamento dos dados for concluído. Esse comportamento é uma estratégia para carregar os dados de uma vez, como um array de disciplinas, mantendo uma referência para esse array no atributo `DisciplinasSservice.disciplinas` e também no atributo `AppComponent.disciplinas`. Isso acontece porque a forma de acesso à lista de disciplinas, até o momento, não permite alterar seu conteúdo de forma persistente, ou seja, não salva os dados.
 
-Bem, antes de prosseguirmos com a leitura do código, é importante detalhar o conceito de **requisição assíncrona**. A figura a seguir ilustra esse processo.
+Antes de prosseguirmos com a leitura do código, é importante detalhar o conceito de **requisição assíncrona**. A figura a seguir ilustra esse processo.
 
 ![Ilustração do processo de requisição assíncrona](https://www.planttext.com/plantuml/img/VP0z3i8m38NtdC8Z35GLwiI0g13Y07HaiHeFGQaDJjg1wt0BLYw6GVmAYSZAak-zb-T5ogYvxw9ponY8Cy5a3XlI8NZH6QnN3VYGsh2FWJ4LkoJidi_VQ6DgX2Wjnd141G6bjjSaiELV3umPQZtqOH0WReMpeXSOJSjoxC3EPyZZQpEuSNGv6sY33_cFDyL4BtE-dBuJghBwav2eUwSuOk-Aee3Qj5R4atMoQu-AztvPb0MCS6vXhEtn2W00)
 
