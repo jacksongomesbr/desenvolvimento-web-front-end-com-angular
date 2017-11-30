@@ -97,12 +97,11 @@ atualizarLista() {
       this.status_lista = true;
     }, () => this.status_lista = false);
 }
-
 ```
 
 O método `atualizarLista()` chama o método `todas()` do `DisciplinasService`. Perceba que, porque o retorno do método é um `Observable`, é possível chamar o método `subscribe()` logo em seguida. Como de costume, uma figura para explicar isso em partes:
 
-![](/assets/acessando-dados-api-exemplo-subscribe-sucesso-erro.png)
+![Ilustração da estrutura de callback de sucesso e erro](/assets/acessando-dados-api-exemplo-subscribe-sucesso-erro.png)
 
 A figura destaca, na cor verde, o código da callback de sucesso. Lembre-se que a callback de sucesso executa se a requisição para a API for bem sucedida \(código de retorno igual 200\). Nesse caso a **arrow function** tem o parâmetro disciplinas e o corpo da função faz:
 
@@ -136,7 +135,7 @@ Os demais métodos, `excluir()` e `editar()`, utilizam, respectivamente, os mét
 
 A execução do software no browser não é muito diferente do capítulo anterior. Entretanto, como estamos utilizando uma API HTTP REST, é importante tomar certos cuidados. Por exemplo, se, por algum motivo, não for possível acessar a API, é interessante apresentar uma mensagem de erro na tela. A figura a seguir ilustra essa situação.
 
-![](/assets/software-dados-api-http-demonstracao-erro.png)
+![Execução do software no browser demonstrando mensagem de erro de conexão com a API HTTP REST](/assets/software-dados-api-http-demonstracao-erro.png)
 
 Caso contrário, se a API estiver acessível e tudo estiver ocorrendo como esperado, a interface continua mostrando os dados e permitindo interação com o usuário normalmente.
 
