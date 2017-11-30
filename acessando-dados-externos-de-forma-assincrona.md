@@ -94,9 +94,9 @@ A figura demonstra que o Cliente faz uma requisição HTTP para o Servidor \(usa
 * **código 200**: o arquivo foi encontrado, então retorna o conteúdo dele
 * **código 404**: o arquivo não foi encontrador, então não há conteúdo no retorno
 
-De qualquer forma, um comportamento característico desse cenário acontece: quando o Cliente faz a requisição ele continua em funcionamento enquanto aguarda uma resposta do Servidor. Quando a resposta chega o Cliente sabe que isso aconteceu e executa uma ação específica para cada tipo de retorno \(conforme o código de retorno 200 ou 404, por exemplo\). É por isso que a requisição é assícrona.
+De qualquer forma, um comportamento característico desse cenário acontece: quando o Cliente faz a requisição ele continua em funcionamento enquanto aguarda uma resposta do Servidor. Quando a resposta chega o Cliente é notificado que isso aconteceu e executa uma ação específica para cada tipo de retorno \(conforme o código de retorno 200 ou 404, por exemplo\). É por isso que a requisição é assícrona.
 
-Em termos de código o método `get()` da classe `HttpClient` não realiza a requisição. Ele cria um objeto do tipo `Observable` \(do pacote `rxjs`\) que implementa um padrão de projeto chamado **Observer**, que é ideal para essa situação das requisições assíncronas. Por causa desse padrão, vamos a uma analogia demonstada pela figura a seguir.
+Em termos de código o método `get()` da classe `HttpClient` não realiza a requisição. Ele cria um objeto do tipo `Observable` \(do pacote `rxjs`\) que implementa um padrão de projeto chamado **Observer**, que é ideal para essa situação das requisições assíncronas. Por causa desse padrão de projeto, vamos a uma analogia demonstada pela figura a seguir.
 
 ![Ilustração do processo de assinatura de uma revista](https://www.planttext.com/plantuml/img/TP313OCm34NlcS8Bm02ega28Mm_j26wILfOWGKx2GZrKwXeiLWjeeHAzsk_PNxyC4JcchbMgRicwQ24xGcCeUiO2Bico1mo1738Wi1r83BK0FspD98n6Wo6AP3pe-UAMNfuKK4qtOvAnzkv6t8cOGtLFoCQ2ymE2DJG-nuTNUIwRo1Wyz2W6Gf-kBMcSrY1ywbOSp3SeYBaRzZpx_FjeO-w6Rjn0-5_vD7Z8LkKqlZQzgT8w8ss_0G00)
 

@@ -8,6 +8,16 @@ Parte do conteúdo do livro é baseada na documentação oficial do Angular, dis
 
 Como o Angular é um projeto em constante desenvolvimento \(pelo menos até agora\) serão publicadas atualizações no conteúdo do livro sempre que possível, para refletir novos recursos e funcionalidades. No momento, o conteúdo do livro é baseado na versão **5.0.0**.
 
+## Conhecimentos desejáveis
+
+Este livro aborda o desenvolvimento de software front-end para a web do ponto-de-vista do Angular. Isso quer dizer que não trata de conceitos iniciais de HTML, CSS, JavaScript, TypeScript e Bootstrap. Entretanto, os conceitos fundamentais dessas tecnologias vão sendo apresentados no decorrer dos capítulos, conforme surge a necessidade deles.
+
+Para aprender mais sobre essas tecnologias recomendo essas fontes:
+
+* **TypeScript**: [Documentação oficial do TypeScript - Microsoft](https://www.typescriptlang.org/docs/home.html), [TypeScript Deep Dive](https://www.gitbook.com/book/basarat/typescript/details)
+* **HTML, CSS e JavaScript:** [W3Schools](https://www.w3schools.com/)
+* **Boostrap**: [Documentação oficial do Bootstrap](http://getbootstrap.com/docs/4.0/getting-started/introduction/)
+
 ## Código-fonte
 
 O software _Angular Escola_, que serve como apoio para este livro está disponível gratuitamente no Github: [https://github.com/jacksongomesbr/angular-escola](https://github.com/jacksongomesbr/angular-escola). O repositório provê branches que demonstram a evolução do desenvolvimento do software na mesma ordem dos capítulos do livro. Cada capítulo, se necessário, indica qual branch utilizar.

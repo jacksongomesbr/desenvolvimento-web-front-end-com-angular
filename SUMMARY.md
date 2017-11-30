@@ -19,6 +19,7 @@
 * [Interação entre componentes](interacao-entre-componentes.md)
 * [Serviços](servicos.md)
 * [Acessando dados externos de forma assíncrona](acessando-dados-externos-de-forma-assincrona.md)
+* [Acessando dados de uma API HTTP](acessando-dados-de-uma-api-http.md)
 * [Rotas](rotas.md)
 * [Feature-modules](feature-modules.md)
 
