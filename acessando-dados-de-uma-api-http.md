@@ -139,7 +139,11 @@ A execução do software no browser não é muito diferente do capítulo anterio
 
 Caso contrário, se a API estiver acessível e tudo estiver ocorrendo como esperado, a interface continua mostrando os dados e permitindo interação com o usuário normalmente.
 
+Para finalizar o capítulo, um diagrama de sequência demonstrando a interação entre `AppComponent`, `DisciplinasService` e o **Servidor HTTP da API** quando é executado o método `atualizarLista()` do `AppComponent`.
 
+![Diagrama de sequência demonstrando a interação entre AppComponent, DisciplinasService e Servidor HTTP quando é chamado o método atualizarLista() do AppComponent](https://www.planttext.com/plantuml/img/fPFVIiCm5CRlynJdRYtCMcJUz48svj0x1NSfZ3Gvpc3QXFmPnTVn4No4lPWdLMQrJ1GBeIJvlY-_SqBcFd0NOgFPmjgbQQnfiGrmSW6NoWjbjMgvlqEtKm8h24Pod-Lil7VCyHY2lM-BBOPiSYe_1PDZ8KEC2cvgJrkyrZZYEoOiVAozSAh6J72jQowUDZuAzDvCuR22pfbybDbpIECsr-lrRGLNgpKCeLbH5B3OHkua1uV1kDQ0DE0_R91if65S1rZkNwNQ6ZWhImRqVSaU5w0LtGH8XE5voVTptTYXY6JyNYf3xH7wW26CL0_eo8Zf92A33BiAPkLi2kTbcVVwNy3k-BCo1_4V2LFhUs-FkA9PWX4ax_OlT4TH1ySjfo8Y1AGSwasZtf4TUcjIexAW6ZGnvF-dQ2LBWx4v_UWbl040)
+
+O diagrama de sequência demonstra as interações desde a chamada do método `todas\(\)` do `DisciplinasService` até o tratamento do retorno do Servidor HTTP \(ou erro\).
 
 > **\[info\] Resumo do capítulo:**
 >
