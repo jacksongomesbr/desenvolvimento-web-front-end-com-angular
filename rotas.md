@@ -74,5 +74,15 @@ Além disso, como URLs são localizadores de recursos, rotas também servem para
 
 ## Rotas no Angular
 
-Controlar a visibilidade de componentes não é uma tarefa complexa. Isso pode ser consideguido, por exemplo, utilizando as diretivas `ngIf` e `hidden`. Entretanto, a complexidade aumenta na proporção da quantidade de componentes ou da complexidade das interações com o usuário.
+Controlar a visibilidade de componentes é uma tarefa simples. Isso pode ser consideguido, por exemplo, utilizando as diretivas `ngIf` e `hidden`. Entretanto, a complexidade aumenta na proporção da quantidade de componentes ou da complexidade das interações com o usuário. Por isso o Angular implementa o conceito de rotas de uma maneira bastante útil.
+
+Para usar rotas é necessário um **módulo de rotas**. Se o software já possuir um módulo, então será necessário criar o módulo de rotas manualmente. Se for necessário criar um **feature module**, o Angular CLI auxilia nesse processo \(isso será visto no próximo capítulo\).
+
+Crie o arquivo `./src/app/app-routing.module.ts`:
+
+```
+
+```
+
+
 
