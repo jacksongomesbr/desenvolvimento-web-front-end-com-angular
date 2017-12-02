@@ -32,11 +32,11 @@ A figura a seguir ilustra um URI e a sua composição:
 
 ![](/assets/ilustracao-uri-url.png)
 
-O URI identifica um recurso disponível na internet, mais especificamente um repositório do Github. Provavelmente você já conhece isso e pode ser que use os termos **endereço** e **URL**. Você não está errado. URL é a forma mais comum de URI na internet. **URL** \(_Uniform Resource Locator_\) é um endereço de um recurso na internet. Além disso, URL é a forma mais comum de criar _links _entre páginas web e incorporar uma imagem em uma página web, por exemplo.
+O URI identifica um recurso disponível na internet, mais especificamente um repositório do Github. Provavelmente você já conhece isso e pode ser que use os termos **endereço** e **URL**. Você não está errado. URL é a forma mais comum de URI na internet. **URL** \(_Uniform Resource Locator_\) é um endereço de um recurso na internet. Além disso, URL é a forma mais comum de criar \_links \_entre páginas web e incorporar uma imagem em uma página web, por exemplo.
 
 **URN** \(_Uniform Resource Name_\) é o nome de um recurso em um contexto específico. Por exemplo: o ISBN \(_International Standard Book Number_\) de uma edição de "Romeu e Julieta", de William Shakespeare, é 0-486-27557-4; seu URN poderia ser **urn:isbn:0-486-2557-4**.
 
-Voltando para URL e o contexto da internet, os browsers geralmente fornecem uma **barra de endereço**, por meio da qual o usuário indica qual URL deseja acessar, por exemplo a URL de uma página web. A partir do momento que o browser acessa uma página web ele passa a armazenar o primeiro endereço acessado e os demais endereços que forem acessados por meio de cliques em _links_. 
+Voltando para URL e o contexto da internet, os browsers geralmente fornecem uma **barra de endereço**, por meio da qual o usuário indica qual URL deseja acessar, por exemplo a URL de uma página web. A partir do momento que o browser acessa uma página web ele passa a armazenar o primeiro endereço acessado e os demais endereços que forem acessados por meio de cliques em _links_.
 
 Esse é, provavelmente, o formato mais intuitivo e o mais utilizado para acessar páginas web. Justamente por isso é necessário repensar a forma como o aplicativo desenvolvido em Angular não apenas entrega conteúdo para o usuário mas também como permite que o usuário o acesse.
 
@@ -70,9 +70,9 @@ A implementação desse conceito pode variar entre frameworks, mas provavelmente
 * definir uma rota \(e, opcionalmente, usar parâmetros de rota\)
 * identificar valores dos parâmetros de rota
 
+Além disso, como URLs são localizadores de recursos, rotas também servem para esse propósito.
 
-
-Cada um dos elementos da rota que estão entre `<>` são parâmetros de rota. Para acessar uma notícia
+## Rotas no Angular
 
 Controlar a visibilidade de componentes não é uma tarefa complexa. Isso pode ser consideguido, por exemplo, utilizando as diretivas `ngIf` e `hidden`. Entretanto, a complexidade aumenta na proporção da quantidade de componentes ou da complexidade das interações com o usuário.
 
