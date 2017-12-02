@@ -45,10 +45,10 @@ Esse é, provavelmente, o formato mais intuitivo e o mais utilizado para acessar
 Uma rota está diretamente relacionada a URL, ou seja, também funciona como um localizador de um recurso. A diferença é que acrescenta a possibilidade de utilizar **parâmetros de rota**. Por exemplo: considere um site de notícias **noticias.to** que permite acessar a notícia "Governo paga salarios de servidores", cujo identificador é 7899, está na categoria "política" e foi publicada em 20/12/2017, por meio do URL:
 
 ```
-https://noticias.to/politica/2017/12/20/governo-paga-salarios-de-servidores/7899
+https://noticias.to/noticias/politica/2017/12/20/governo-paga-salarios-de-servidores/7899
 ```
 
-Há informações presentes no URL que pertencem à notícia e mudam de uma notíca para outra:
+Há informações no URL que pertencem à notícia e mudam de uma notíca para outra:
 
 * **categoria:** politica
 * **ano:** 2017
@@ -60,17 +60,17 @@ Há informações presentes no URL que pertencem à notícia e mudam de uma not�
 Analisando URLs de outras notícias alguém poderia chegar à conclusão de que há um padrão:
 
 ```
-/categoria/ano/mes/dia/titulo/identificador
+/noticias/categoria/ano/mes/dia/titulo/identificador
 ```
 
-Cada uma dessas informações \(categoria, ano, mes, dia, titulo, identificador\), que muda de uma notícia para outra, pode ser representada como um **parâmetro de rota**.
+Independentemente de possuir parâmetros de rota, uma rota é um **padrão**. Cada uma dessas informações \(categoria, ano, mes, dia, titulo, identificador\), que muda de uma notícia para outra, pode ser representada como um **parâmetro de rota**.
 
 A implementação desse conceito pode variar entre frameworks, mas provavelmente as mesmas funcionalidades estão disponíveis:
 
 * definir uma rota \(e, opcionalmente, usar parâmetros de rota\)
 * identificar valores dos parâmetros de rota
 
-Além disso, como URLs são localizadores de recursos, rotas também servem para esse propósito.
+Além disso, como URLs são localizadores de recursos, rotas também servem para esse propósito, ou seja, uma rota está associada algum recurso e é uma forma de acessá-lo.
 
 ## Rotas no Angular
 
