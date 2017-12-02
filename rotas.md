@@ -32,9 +32,9 @@ A figura a seguir ilustra um URI e a sua composição:
 
 ![](/assets/ilustracao-uri-url.png)
 
-O URI identifica um recurso disponível na internet, mais especificamente um repositório do Github. Provavelmente você já conhece isso e pode ser que use os termos **endereço** e **URL**. Você não está errado. URL é a forma mais comum de URI na internet. 
+O URI identifica um recurso disponível na internet, mais especificamente um repositório do Github. Provavelmente você já conhece isso e pode ser que use os termos **endereço** e **URL**. Você não está errado. URL é a forma mais comum de URI na internet. **URL** \(_Uniform Resource Locator_\) é um endereço de um recurso na internet.
 
-**URL** \(_Uniform Resource Locator_\) é um endereço de um recurso na internet.
+**URN** \(_Uniform Resource Name_\) é o nome de um recurso em um contexto específico. Por exemplo: o ISBN \(_International Standard Book Number_\) de uma edição de "Romeu e Julieta", de William Shakespeare, é 0-486-27557-4; seu URN poderia ser **urn:isbn:0-486-2557-4**.
 
 
 
