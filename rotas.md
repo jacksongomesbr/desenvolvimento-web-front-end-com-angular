@@ -84,9 +84,55 @@ Para usar rotas é possível definí-las das seguintes formas:
 
 Nesse momento vamos usar a primeira abordagem. Modifique o arquivo `./src/app/app.module.ts`:
 
+```typescript
+...
+import {RouterModule, Routes} from '@angular/router';
+
+... (imports dos componentes)
+
+const appRoutes: Routes = [
+  {path: 'disciplinas', component: ListaDeDisciplinasComponent},
+  {path: 'disciplinas/:id', component: EditorDeDisciplinaComponent},
+  {path: '', component: HomeComponent,},
+  {path: '**', component: PaginaNaoEncontradaComponent}
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ListaDeDisciplinasComponent,
+    EditorDeDisciplinaComponent,
+    HomeComponent,
+    PaginaNaoEncontradaComponent
+  ],
+  imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true} 
+    ),
+    ...
+  ],
+  providers: [DisciplinasService],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
 ```
 
-```
+A primeira coisa a destacar é a variável `appRoutes`, do tipo `Routes`. O pacote `@angular/router` fornece o módulo `RouterModule` e a classe `Routes`. Na prática a variável `appRoutes` recebe um array no qual cada item é um objeto com dois atributos:
+
+* `path`: representa a rota para o componente; e
+* `component`: representa o componente associado à rota.
+
+A primeira rota, `disciplinas`, está associada ao componente `ListaDeDisciplinasComponent`. 
+
+A segunda rota, `disciplinas/:id`, está usando um parâmetro de rota. A sintaxe do Angular para parâmetro de rotas é usar o sinal de dois pontos seguido do nome do parâmetro. Nesse caso o parâmetro chama-se `id`. A rota está associada ao componente `EditorDeDisciplinaComponent`.
+
+A terceira e a quarta rotas têm um comportamento especial. A terceira rota é uma string vazia e está associada ao componente `HomeComponent`. Isso significa que essa é a rota padrão. A quarta rota é `**`, associada ao componente `PaginaNaoEncontradaComponent`. Isso significa um atalho para o seguinte comportamento: se o usuário fornecer uma rota não definida, leve até o componente `PaginaNaoEncontradaComponent`.
+
+Quando o software iniciar o Angular busca uma combinação entre a URL fornecida no browser e as rotas definidas no módulo. Isso é feito de cima para baixo, procurando no array `appRoutes`. Ao encontrar uma rota correspondente, o Angular cria uma instância do componente e o apresenta. Essa apresentação usa o conceito de **shell component**. Assim, vamos continuar a leitura, primeiro, com uma figura que ilustra a composição do software nesse momento.
+
+
 
 
 
