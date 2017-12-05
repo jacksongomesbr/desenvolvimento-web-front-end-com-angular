@@ -124,15 +124,23 @@ A primeira coisa a destacar é a variável `appRoutes`, do tipo `Routes`. O paco
 * `path`: representa a rota para o componente; e
 * `component`: representa o componente associado à rota.
 
-A primeira rota, `disciplinas`, está associada ao componente `ListaDeDisciplinasComponent`. 
+A primeira rota, `disciplinas`, está associada ao componente `ListaDeDisciplinasComponent`.
 
-A segunda rota, `disciplinas/:id`, está usando um parâmetro de rota. A sintaxe do Angular para parâmetro de rotas é usar o sinal de dois pontos seguido do nome do parâmetro. Nesse caso o parâmetro chama-se `id`. A rota está associada ao componente `EditorDeDisciplinaComponent`.
+A segunda rota, `disciplinas/:id`, está usando um **parâmetro de rota**. A sintaxe do Angular para parâmetro de rotas é usar o sinal de dois pontos seguido do nome do parâmetro. Nesse caso o parâmetro chama-se `id`. A rota está associada ao componente `EditorDeDisciplinaComponent`.
 
-A terceira e a quarta rotas têm um comportamento especial. A terceira rota é uma string vazia e está associada ao componente `HomeComponent`. Isso significa que essa é a rota padrão. A quarta rota é `**`, associada ao componente `PaginaNaoEncontradaComponent`. Isso significa um atalho para o seguinte comportamento: se o usuário fornecer uma rota não definida, leve até o componente `PaginaNaoEncontradaComponent`.
+A terceira e a quarta rotas têm um comportamento especial. A terceira rota é uma string vazia e está associada ao componente `HomeComponent`. Isso significa que essa é a **rota padrão**. A quarta rota é `**`, associada ao componente `PaginaNaoEncontradaComponent`. Isso significa um atalho para o seguinte comportamento: se o usuário fornecer uma rota não definida, leve até o componente `PaginaNaoEncontradaComponent`.
 
-Quando o software iniciar o Angular busca uma combinação entre a URL fornecida no browser e as rotas definidas no módulo. Isso é feito de cima para baixo, procurando no array `appRoutes`. Ao encontrar uma rota correspondente, o Angular cria uma instância do componente e o apresenta. Essa apresentação usa o conceito de **shell component**. Assim, vamos continuar a leitura, primeiro, com uma figura que ilustra a composição do software nesse momento.
+Quando o software é executado o Angular busca uma combinação entre a URL fornecida no browser e as rotas definidas no módulo. Isso é feito de cima para baixo, procurando no array `appRoutes`. Ao encontrar uma rota correspondente, o Angular cria uma instância do componente e a apresenta. A figura a seguir ilustra esse processo.
+
+![](/assets/ilustracao-procurando-rota.png)
+
+O modo de comparação entre a URL no browser e o caminho da rota é muito interessante. A forma de comparação considera se o caminho da rota combina com o final da URL do browser. A figura ilustra a busca por uma rota correspondente à URL `http://localhost:4200` e interrompe o processo quando encontra a primeira correspondência. Nesse mesmo sentido se a URL no browser for `http://localhost:4200/disciplinas` o Angular encontra a rota `disciplinas`. E assim por diante.
+
+Voltando à figura a URL indica o que é conhecido como **raiz do site**. É opcional que a URL termine com `/`.
+
+Outra característica importante desse processo é a ordem das rotas. Como disse, o Angular procura pela rota que combina com o final da URL, assim, se a rota padrão estiver no início da lista das rotas, então o Angular sempre a encontrará. Da mesma forma, se não encontrar uma rota correspondente o Angular vai até a rota `**`.
 
 
 
-
+Essa apresentação usa o conceito de **shell component**. Assim, vamos continuar a leitura, primeiro, com uma figura que ilustra a composição do software nesse momento.
 
