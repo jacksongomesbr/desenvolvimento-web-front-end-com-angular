@@ -82,7 +82,7 @@ Além disso, como URLs são localizadores de recursos, rotas também servem para
 
 Aqui fazemos uma pequena pausa no assunto de rotas para entender a estrutura do software construído nesse capítulo, ilustrada pela figura a seguir.
 
-![](/assets/rotas-estrutura-classes.png)
+![Estrutura de classes do software](/assets/rotas-estrutura-classes.png)
 
 Como mostra a figura a estrutura do software contém:
 
@@ -164,7 +164,7 @@ A terceira e a quarta rotas têm um comportamento especial. A terceira rota é u
 
 Quando o software é executado o Angular busca uma combinação entre a URL fornecida no browser e as rotas definidas no módulo. Isso é feito de cima para baixo, procurando no array `appRoutes`. Ao encontrar uma rota correspondente, o Angular cria uma instância do componente e a apresenta. A figura a seguir ilustra esse processo.
 
-![](/assets/ilustracao-procurando-rota.png)
+![Processo de interpretação da URL em busca em uma rota e do seu componente](/assets/ilustracao-procurando-rota.png)
 
 O modo de comparação entre a URL no browser e o caminho da rota é muito interessante. A forma de comparação considera se o caminho da rota combina com o final da URL do browser. A figura ilustra a busca por uma rota correspondente à URL `http://localhost:4200` e interrompe o processo quando encontra a primeira correspondência. Nesse mesmo sentido se a URL no browser for `http://localhost:4200/disciplinas` o Angular encontra a rota `disciplinas`. E assim por diante.
 
@@ -181,7 +181,7 @@ Quando o Angular identifica a rota e o componente associado a ela é necessário
 
 A figura a seguir ilustra esse processo, considerando que a URL no browser é `http://localhost:4200`.
 
-![](/assets/ilustracao-rotas-router-outlet-combinacao.png)
+![Utilização do shell component e combinação do seu Template com o Template do componente associado à rota](/assets/ilustracao-rotas-router-outlet-combinacao.png)
 
 Como mostra a figura, o Angular combina o Template do `AppComponent` com o Template do `HomeComponent` para gerar uma saída HTML \[unificada\] para o browser. Importante perceber que tudo o que está antes e depois do elemento `router-outlet` é mantido na saída. Por isso o Angular usa, em conjunto, a descoberta da rota e do componente associado e o conteúdo do **shell component**.
 
@@ -191,7 +191,7 @@ No caso do `EditorDeDisciplinaComponent` há uma lógica no funcionamento do com
 
 A rota `disciplinas/:id`, como já visto, possui um **parâmetro de rota** chamado `id`. Obter o valor desse identificador da disciplina na URL é uma tarefa importante desse processo de lidar com rotas no Angular. Para fazer isso, o componente `EditorDeDisciplinaComponent` possui o atributo `route`, uma instância de `ActivatedRoute`, como mostra o trecho de código a seguir.
 
-```
+```typescript
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 ...
