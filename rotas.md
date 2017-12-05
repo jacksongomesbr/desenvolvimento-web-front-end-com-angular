@@ -72,6 +72,32 @@ A implementação desse conceito pode variar entre frameworks, mas provavelmente
 
 Além disso, como URLs são localizadores de recursos, rotas também servem para esse propósito, ou seja, uma rota está associada algum recurso e é uma forma de acessá-lo.
 
+## Estrutura do software
+
+Aqui fazemos uma pequena pausa no assunto de rotas para entender a estrutura do software construído nesse capítulo, ilustrada pela figura a seguir.
+
+![](/assets/rotas-estrutura-classes.png)
+
+Como mostra a figura a estrutura do software contém:
+
+* um módulo: `AppModule`
+* quatro componentes: `AppComponent`, `HomeComponent`, `ListaDeDisciplinasComponent` e `EditorDeDisciplinasComponent`
+* um serviço: `DisciplinasService`
+
+`AppComponent` é utilizado como componente do **bootstrap** do módulo `AppModule`.
+
+`HomeComponent` é o primeiro componente visualizado pelo usuário, representando a tela inicial do aplicativo.
+
+`ListaDeDisciplinasComponent` apresenta a lista de disciplinas e também permite que o usuário exclua uma disciplina e acesse a tela de cadastro e edição de uma disciplina.
+
+`EditorDeDisciplinaComponent` funciona como um editor de disciplinas, servindo tanto para cadastrar quanto para editar uma disciplina.
+
+Até o capítulo anterior também havia uma estrutura de classes semelhante a essa. Entretanto, o `AppComponent` continha a lógica de gerenciamento dos dados e incluía os componentes `ListaDeDisciplinasComponent` e `EditorDeDisciplinaComponent`, utilizando **input e output** para entregar e receber dados deles. Aqui neste capítulo, com o recurso de rotas, o resultado é diferente:
+
+* `AppComponent` não tem a lógica para gerenciar dados de disciplinas
+* `ListaDeDisciplinasComponent` não tem input ou output, pois interage diretamente com o `DisciplinasService`
+* `EditorDeDisciplinaComponent` não tem input ou ouptut, interage diretamente com o `DisciplinasService` e usa o recurso parâmetros de rota para saber quando é necessário editar uma disciplina \(e qual deve ser editada\) ou cadastrar uma disciplina.
+
 ## Rotas no Angular
 
 Controlar a visibilidade de componentes é uma tarefa simples. Isso pode ser consideguido, por exemplo, utilizando as diretivas `ngIf` e `hidden`. Entretanto, a complexidade aumenta na proporção da quantidade de componentes ou da complexidade das interações com o usuário. Por isso o Angular implementa o conceito de rotas de uma maneira bastante útil.
@@ -140,8 +166,6 @@ Voltando à figura a URL indica o que é conhecido como **raiz do site**. É opc
 
 Outra característica importante desse processo é a ordem das rotas. Como disse, o Angular procura pela rota que combina com o final da URL, assim, se a rota padrão estiver no início da lista das rotas, então o Angular sempre a encontrará. Da mesma forma, se não encontrar uma rota correspondente o Angular vai até a rota `**`.
 
-Ok, agora falta concluir essa seção falando sobre o **shell component**.
-
 ### Shell component
 
 Quando o Angular identifica a rota e o componente associado a ela é necessário apresentá-lo \(lembre-se que o componente é, provavelmente, visual\). Assim, ao utilizar rotas o Angular requer que o módulo \(nesse caso o `AppModule`\) utilize um componente como shell, o que significa que o Template do componente precisa indicar onde outros componentes serão apresentados. Para isso o Angular utiliza duas informações:
@@ -157,20 +181,60 @@ Como mostra a figura, o Angular combina o Template do `AppComponent` com o Templ
 
 ### Parâmetros de rota
 
+No caso do `EditorDeDisciplinaComponent` há uma lógica no funcionamento do componente que depende de identificar, conforme a rota, se é necessário editar uma disciplina existente \(e qual é essa disciplina\) ou se é necessário cadastrar uma disciplina. Obviamente, nesse caso, o componente executa duas funções \(cadastrar e editar disciplina\). Uma alternativa é utilizar dois componentes, cada qual com uma função diferente.
 
+A rota `disciplinas/:id`, como já visto, possui um **parâmetro de rota** chamado `id`. Obter o valor desse identificador da disciplina na URL é uma tarefa importante desse processo de lidar com rotas no Angular. Para fazer isso, o componente `EditorDeDisciplinaComponent` possui o atributo `route`, uma instância de `ActivatedRoute`, como mostra o trecho de código a seguir.
 
-## Estrutura do software
+```
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+...
+export class EditorDeDisciplinaComponent implements OnInit {
+  ...
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private disciplinasService: DisciplinasService) {
+  }
 
-A figura a seguir apresentra as classes principais do software até este capítulo.
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id == 'cadastrar') {
+      this.disciplina = new Disciplina(null, null, null);
+      this.status = null;
+    } else {
+      this.disciplinasService.encontrar(parseInt(id))
+        .subscribe(...);
+    }
+  }
+  ...
+}
+```
 
-![](/assets/rotas-estrutura-classes.png)
+Como o componente implementa a interface `OnInit`, o código do método `ngOnInit()` é responsável por:
 
-## Padrão de trabalho
+* **identificar o valor do parâmetro de rota**: isso é feito por meio de uma chamada para o método `route.snapshot.paramMap.get()`. O parâmetro para o método `get()` é o nome do parâmetro de rota desejado
+* **tratar o valor do parâmetro de rota**: o valor retornado por `get()` é do tipo `string`. Se o valor do parâmetro de rota for igual a `'cadastrar'` então o componente opera no modo de cadastro de disciplina; caso contrário, o código faz uma chamada ao método `disciplinasService.encontrar()`, passando como parâmetro o valor do parâmetro de rota convertido para o tipo `number`, usando a função `parseInt()`, então o componente entra no modo de edição de uma disciplina.
 
-* criar componente
-* definir rota
-* implementar a lógica de negócio em um serviço
-* implementar lógica de interface usar o serviço
+O método `ngOnInit()` é executado pelo Angular no início do processo de instanciar o componente e apresentá-lo na tela.
+
+## Padrão de trabalho \(workflow\)
+
+Lidar com rotas no Angular é um processo simples, mas que aumenta de complexidade na proporção da quantidade de componentes, módulos ou na complexidade da arquitetura do software. Entretanto, lidar com esse processo contém alguns passos padrão \(supondo que o projeto já tenha iniciado e adote a mesma estrutura do Angular CLI\):
+
+1. **criar componente**: a primeira coisa a fazer é criar o componente desejado. Como é importante conduzir esse processo de forma iterativa, não se preocupe em construir o componente por inteiro, deixe-o como criado pelo Angular CLI;
+2. **definir rotas**: depois, defina as rotas \(utilizando, por exemplo, o **root module**, como visto neste capítulo\);
+3. **implementar a lógica de negócio em um serviço**: ao utilizar serviços, implemente a lógica de negócio do serviço; e
+4. **implementar lógica do componente e usar o serviço**: por fim, melhore a lógica do componente, fornecendo código para a lógica da interface e da lógica de negócio, e utilize o serviço.
+
+Adotar esse padrão de trabalho pode tornar o desenvolvimento mais simples e rápido, bem como reduzir a quantidade de erros e permitir a identificação dos erros de forma mais ágil.
+
+> **\[info\] Resumo do capítulo**
+>
+> * Rotas servem como recurso para integrar componentes ao mecanismo de navegação do browser, que já é conhecido pelos usuários
+> * É possível identificar valores dos parâmetros de rota utilizando a classe `ActivatedRoute`
+> * O **shell component** é um componente utilizado para fornecer uma estrutura padrão para os componentes de um módulo
+> * O **shell component** utiliza o elemento `router-outlet`
+> * O Angular combina o Template do shell component e do componente associado a uma rota para gerar uma saída comum para o browser
 
 
 
