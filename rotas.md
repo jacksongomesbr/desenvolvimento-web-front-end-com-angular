@@ -140,6 +140,13 @@ Voltando à figura a URL indica o que é conhecido como **raiz do site**. É opc
 
 Outra característica importante desse processo é a ordem das rotas. Como disse, o Angular procura pela rota que combina com o final da URL, assim, se a rota padrão estiver no início da lista das rotas, então o Angular sempre a encontrará. Da mesma forma, se não encontrar uma rota correspondente o Angular vai até a rota `**`.
 
+Ok, agora falta concluir essa seção falando sobre o **shell component**. Quando o Angular identifica a rota e o componente associado a ela é necessário apresentá-lo \(lembre-se que o componente é, provavelmente, visual\). Assim, ao utilizar rotas o Angular requer que o módulo \(nesse caso o `AppModule`\) utilize um componente como shell, o que significa que o Template do componente precisa indicar onde outros componentes serão apresentados. Para isso o Angular utiliza duas informações:
+
+* qual o componente o módulo declara como bootstrap \(esse é o **shell component**\)
+* onde está o elemento `router-outlet` no Template do shell component
+
+A figura a seguir ilustra esse processo.
+
 
 
 Essa apresentação usa o conceito de **shell component**. Assim, vamos continuar a leitura, primeiro, com uma figura que ilustra a composição do software nesse momento.
