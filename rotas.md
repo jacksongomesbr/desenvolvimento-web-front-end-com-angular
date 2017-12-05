@@ -7,6 +7,8 @@
 > * demonstrar a diferença da estrutura de software desse capítulo para os capítulos anteriores
 > * demonstrar como o Angular implementa e utiliza o conceito de rotas
 > * demonstrar a utilização de parâmetros de rota
+>
+> **Branch**: [livro-rotas](https://github.com/jacksongomesbr/angular-escola/tree/livro-rotas)
 
 Os capítulos anteriores demonstraram como trabalhar com elementos principais da arquitetura do Angular, principalmente componentes e serviços. Esses elementos têm o objetivo de compor a arquitetura de um software desenvolvido em Angular e, como visto, há vários recursos que permitem a interação entre eles.
 
