@@ -140,7 +140,11 @@ Voltando à figura a URL indica o que é conhecido como **raiz do site**. É opc
 
 Outra característica importante desse processo é a ordem das rotas. Como disse, o Angular procura pela rota que combina com o final da URL, assim, se a rota padrão estiver no início da lista das rotas, então o Angular sempre a encontrará. Da mesma forma, se não encontrar uma rota correspondente o Angular vai até a rota `**`.
 
-Ok, agora falta concluir essa seção falando sobre o **shell component**. Quando o Angular identifica a rota e o componente associado a ela é necessário apresentá-lo \(lembre-se que o componente é, provavelmente, visual\). Assim, ao utilizar rotas o Angular requer que o módulo \(nesse caso o `AppModule`\) utilize um componente como shell, o que significa que o Template do componente precisa indicar onde outros componentes serão apresentados. Para isso o Angular utiliza duas informações:
+Ok, agora falta concluir essa seção falando sobre o **shell component**. 
+
+### Shell component
+
+Quando o Angular identifica a rota e o componente associado a ela é necessário apresentá-lo \(lembre-se que o componente é, provavelmente, visual\). Assim, ao utilizar rotas o Angular requer que o módulo \(nesse caso o `AppModule`\) utilize um componente como shell, o que significa que o Template do componente precisa indicar onde outros componentes serão apresentados. Para isso o Angular utiliza duas informações:
 
 * qual o componente o módulo declara como `bootstrap` \(o `AppComponent` é o **shell component**\)
 * onde está o elemento `router-outlet` no Template do `AppComponent`
@@ -150,4 +154,19 @@ A figura a seguir ilustra esse processo.
 ![](/assets/ilustracao-rotas-router-outlet-combinacao.png)
 
 Como mostra a figura, o Angular combina o Template do `AppComponent` com o Template do `HomeComponent` para gerar uma saída HTML \[unificada\] para o browser. Importante perceber que tudo o que está antes e depois do elemento `router-outlet` é mantido na saída. Por isso o Angular usa, em conjunto, a descoberta da rota e do componente associado e o conteúdo do **shell component**.
+
+## Estrutura do software
+
+A figura a seguir apresentra as classes principais do software até este capítulo.
+
+![](/assets/rotas-estrutura-classes.png)
+
+## Padrão de trabalho
+
+* criar componente
+* definir rota
+* implementar a lógica de negócio em um serviço
+* implementar lógica de interface usar o serviço
+
+
 
