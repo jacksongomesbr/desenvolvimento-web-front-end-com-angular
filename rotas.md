@@ -140,7 +140,7 @@ Voltando à figura a URL indica o que é conhecido como **raiz do site**. É opc
 
 Outra característica importante desse processo é a ordem das rotas. Como disse, o Angular procura pela rota que combina com o final da URL, assim, se a rota padrão estiver no início da lista das rotas, então o Angular sempre a encontrará. Da mesma forma, se não encontrar uma rota correspondente o Angular vai até a rota `**`.
 
-Ok, agora falta concluir essa seção falando sobre o **shell component**. 
+Ok, agora falta concluir essa seção falando sobre o **shell component**.
 
 ### Shell component
 
@@ -149,11 +149,15 @@ Quando o Angular identifica a rota e o componente associado a ela é necessário
 * qual o componente o módulo declara como `bootstrap` \(o `AppComponent` é o **shell component**\)
 * onde está o elemento `router-outlet` no Template do `AppComponent`
 
-A figura a seguir ilustra esse processo.
+A figura a seguir ilustra esse processo, considerando que a URL no browser é `http://localhost:4200`.
 
 ![](/assets/ilustracao-rotas-router-outlet-combinacao.png)
 
 Como mostra a figura, o Angular combina o Template do `AppComponent` com o Template do `HomeComponent` para gerar uma saída HTML \[unificada\] para o browser. Importante perceber que tudo o que está antes e depois do elemento `router-outlet` é mantido na saída. Por isso o Angular usa, em conjunto, a descoberta da rota e do componente associado e o conteúdo do **shell component**.
+
+### Parâmetros de rota
+
+
 
 ## Estrutura do software
 
