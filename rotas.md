@@ -223,6 +223,40 @@ Como o componente implementa a interface `OnInit`, o código do método `ngOnIni
 
 O método `ngOnInit()` é executado pelo Angular no início do processo de instanciar o componente e apresentá-lo na tela.
 
+### Navegação
+
+A navegação é o recurso que permite mudar de uma rota para outra. Isso pode ser feito por meio de uma ação do usuário \(por exemplo, quando ele clica em um link\) ou via código.
+
+A navegação por meio de link utiliza o elemento `a` e o atributo `routerLink`, como mostra o Template do `HomeComponent`:
+
+```html
+<h2>Gerenciador de dados escolares</h2>
+<p>
+    <a routerLink="/disciplinas" class="btn btn-primary">
+        Gerenciar disciplinas
+    </a>
+</p>
+```
+
+O atributo `routerLink` tem o valor `/disciplinas`, o que significa que quando o usuário clicar no link ocorrerá uma navegação para a rota `disciplinas`. É importante destacar que, embora a definição da rota não inclua uma barra no início do caminho, o mesmo não acontece aqui, com o link. É como determinar que o link sempre considera a raiz do site \(usando um caminho absoluto\).
+
+Na lista de disciplinas há um botão que permite editar uma disciplina. No clique do botão há uma chamada para a função `editar()`, cujo trecho de código é apresentado a seguir.
+
+```typescript
+...
+export class ListaDeDisciplinasComponent implements OnInit {
+  ...
+  constructor(private disciplinasService: DisciplinasService, 
+    private router: Router) {
+  }
+  editar(disciplina) {
+    this.router.navigate(['disciplinas', disciplina.id]);
+  }
+}
+```
+
+O `ListaDeDisciplinasComponent` possui o atributo `router`, do tipo `Router`. A classe `Router` fornece o método `navigate()`, que é utilizado para fazer a navegação via código. O parâmetro para o método `navigate()` é um array cujos elementos representam partes de uma URL. No caso do método `editar()` os parâmetros são: `'disciplinas'` e `disciplina.id`. O Angular utiliza esses elementos para gerar, por exemplo, a URL `/disciplinas/1` para editar a disciplina com identificador 1.
+
 ## Padrão de trabalho \(workflow\)
 
 Lidar com rotas no Angular é um processo simples, mas que aumenta de complexidade na proporção da quantidade de componentes, módulos ou na complexidade da arquitetura do software. Entretanto, lidar com esse processo contém alguns passos padrão \(supondo que o projeto já tenha iniciado e adote a mesma estrutura do Angular CLI\):
@@ -238,6 +272,7 @@ Adotar esse padrão de trabalho pode tornar o desenvolvimento mais simples e rá
 >
 > * Rotas servem como recurso para integrar componentes ao mecanismo de navegação do browser, que já é conhecido pelos usuários
 > * É possível identificar valores dos parâmetros de rota utilizando a classe `ActivatedRoute`
+> * É possível fazer navegação entre as rotas usando o atributo `routerLink` e a classe `Router`
 > * O **shell component** é um componente utilizado para fornecer uma estrutura padrão para os componentes de um módulo
 > * O **shell component** utiliza o elemento `router-outlet`
 > * O Angular combina o Template do shell component e do componente associado a uma rota para gerar uma saída comum para o browser
