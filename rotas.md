@@ -142,12 +142,12 @@ Outra característica importante desse processo é a ordem das rotas. Como disse
 
 Ok, agora falta concluir essa seção falando sobre o **shell component**. Quando o Angular identifica a rota e o componente associado a ela é necessário apresentá-lo \(lembre-se que o componente é, provavelmente, visual\). Assim, ao utilizar rotas o Angular requer que o módulo \(nesse caso o `AppModule`\) utilize um componente como shell, o que significa que o Template do componente precisa indicar onde outros componentes serão apresentados. Para isso o Angular utiliza duas informações:
 
-* qual o componente o módulo declara como bootstrap \(esse é o **shell component**\)
-* onde está o elemento `router-outlet` no Template do shell component
+* qual o componente o módulo declara como `bootstrap` \(o `AppComponent` é o **shell component**\)
+* onde está o elemento `router-outlet` no Template do `AppComponent`
 
 A figura a seguir ilustra esse processo.
 
+![](/assets/ilustracao-rotas-router-outlet-combinacao.png)
 
-
-Essa apresentação usa o conceito de **shell component**. Assim, vamos continuar a leitura, primeiro, com uma figura que ilustra a composição do software nesse momento.
+Como mostra a figura, o Angular combina o Template do `AppComponent` com o Template do `HomeComponent` para gerar uma saída HTML \[unificada\] para o browser. Importante perceber que tudo o que está antes e depois do elemento `router-outlet` é mantido na saída. Por isso o Angular usa, em conjunto, a descoberta da rota e do componente associado e o conteúdo do **shell component**.
 
