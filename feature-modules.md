@@ -58,7 +58,6 @@ Apresentar uma figura ilustrando o diagrama de classes do software até aqui ser
 | :--- | :--- |
 | LoginComponent | fornece um formulário para autenticação e acesso ao sistema |
 | PublicoComponent | o **shell component** do módulo `Publico` |
-| LogonService | o serviço com a lógica para autenticação do usuário |
 | PublicoModule | o módulo, em si |
 | PublicoRoutingModule | o módulo de rotas |
 
@@ -108,7 +107,7 @@ A linha de comando cria o componente `CadastroDeDisciplina` na pasta `src/app/ad
 
 Com a utilização de feature modules o recurso de rotas ganha uma utilidade ainda mais marcante e evidente. O fundamento adotado pelo Angular é que cada **feature module** pode possuir seu **módulo de rotas**. Posteriormente, o **root module** poderá importar o **feature module** que desejar.
 
-O **módulo de rotas** para o módulo `Admin`, chamado `AdminRouting`, contém um conteúdo semelhante ao seguinte \(omitidas linhas com import\):
+O **módulo de rotas** para o módulo `Admin`, chamado `AdminRouting`, contém um conteúdo semelhante ao seguinte \(omitidas linhas com `import`\):
 
 ```typescript
 ...
@@ -135,5 +134,90 @@ export class AdminRoutingModule {
 }
 ```
 
-Aqui o array `routes` ganha uma característica diferenciada: o primeiro objeto, cujo atributo `path` tem valor `'admin'` está relacionado ao componente `AdminComponent` e possui o atributo `children`, que é um array de rotas. O recurso que permite definir esses tipos de rotas é chamado de **rotas filhas**. Assim, a rota `'admin'` possui várias **rotas filhas**. 
+Aqui o array `routes` ganha uma característica diferenciada: o primeiro elemento, cujo atributo `path` tem valor `'admin'`, está relacionado ao componente `AdminComponent` e possui o atributo `children`, que é um array de rotas. O recurso que permite definir esses tipos de rotas é chamado de **rotas filhas**. Assim, a rota `'admin'` possui várias **rotas filhas**. Além disso essa é a forma de indicar para o Angular que o `AdminComponent` deve ser usado como **shell component**, ou seja, o Template dele contém o elemento `router-outlet`.
+
+Note também que há uma mudança na forma de indicar as rotas para os metadados do módulo: o atributo `imports` contém uma chamada para `RouterModule.forChild()`, que recebe como parâmetro o array `routes`. Esse é uma diferença marcante para a forma de indicar as rotas para o **root module**, quando é utilizado o método `RouterModule.forRoot()`.
+
+Outro passo necessário é importar o módulo de rotas no feature module. A seguir, um trecho do AdminModule:
+
+```typescript
+...
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+    AdminRoutingModule,
+    SharedModule
+  ],
+  ...
+})
+export class AdminModule {
+}
+```
+
+O penúltimo elemento do array `imports` é o módulo de rotas \(`AdminRoutingModule`\). 
+
+O módulo de rotas para o módulo `Publico`, chamado `PublicoRouting`, contém um conteúdo semelhante ao seguinte:
+
+```typescript
+...
+const routes: Routes = [
+  {
+    path: '', component: PublicoComponent, children: [
+      {path: '', component: LoginComponent}
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class PublicoRoutingModule {
+}
+```
+
+O recurso de rotas filhas também é utilizado aqui. `PublicoComponent` é o shell component. O fato interessante é que o atributo `path` contém o mesmo valor `''` nas duas rotas. Como o Angular considera `''` a rota padrão, isso quer dizer que o `PublicoModule` tem maior prioridade no momento em o Angular procurar encontrar uma rota com base na URL. 
+
+## Incluindo as rotas dos feature modules no root module
+
+O último passo desse processo é importar os **feature modules** no **root module**. A seguir, um trecho do `AppModule`:
+
+```typescript
+...
+@NgModule({
+  imports: [
+    BrowserModule,
+    NgbModule.forRoot(),
+    FormsModule,
+    HttpClientModule,
+    AdminModule,
+    PublicoModule,
+    AppRoutingModule
+  ],
+...
+})
+export class AppModule {
+}
+```
+
+Os módulos `AdminModule`, `PublicoModule` e `AppRoutingModule` são importados por meio do atributo `imports` dos metadados da classe `AppModule`. Como os dois primeiros importam seus respectivos módulos de rotas, o root module também tem conhecimento delas e, assim, consegue aplicar o mesmo processo anterior de procura de rotas quando o browser fornece uma URL.
+
+Um aspecto importante é que a importação segue uma ordem. Veja que, primeiro, é importado o módulo `AdminModule`, depois o `PublicoModule` e, por fim, o `AppRoutingModule`. Como você viu no capítulo anterior o processo de procura de rotas percorre uma lista de rotas do início até encontrar uma rota correspondente. Nesse caso a ordem das importações dos módulos quer dizer para o Angular considerar, primeiro, as rotas do `AdminModule`. Isso é muito importante porque as rotas do `PublicoModule`, por serem a rota padrão, devem estar no final do processo de procura de rotas.
+
+## Shared modules
+
+O Angular utiliza o conceito de **shared modules** para indicar módulos que fornecem recursos que são usados por outros. Conforme a arquitetura do software até o momento o serviço `AuthService` implementa a lógica de negócio de autenticação. Para ele poder ser usado nos módulos `AdminModule` e `PublicoModule` esse elemento do software deve estar em um módulo compartilhado. Se ele estivesse, por exemplo, no módulo `PublicoModule` e o `AdminModule` o importasse isso geraria problemas de ordem ou ciclos de importação.
+
+Assim, a solução é isolar o AuthService em outro módulo, no caso o **SharedModule**. Na prática, um **shared module** é também um **feature module**, mas, provavelmente, ele apenas fornecerá recursos para serem utilizados em outros **feature modules**.
+
+Posteriormente, cada **feature module** importa o **shared module** quando precisar utilizar seus recursos.
+
+## Fluxo de trabalho
+
+
+
+
 
