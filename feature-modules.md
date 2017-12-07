@@ -69,8 +69,6 @@ Apresentar uma figura ilustrando o diagrama de classes do software até aqui ser
 | AuthService | o serviço com a lógica para autenticação do usuário |
 | SharedModule | o módulo, em si |
 
-
-
 ## Criando módulos
 
 Para criar os elementos da arquitetura vamos utilizar o Angular CLI. Para começar, vamos criar os **feature modules**. Para fazer isso execute a linha de comando a seguir.
@@ -106,9 +104,36 @@ ng g m Admin/CadastroDeDisciplina -m Admin --spec false
 
 A linha de comando cria o componente `CadastroDeDisciplina` na pasta `src/app/admin/cadastro-de-disciplina` e modifica o `AppModule` para incluir esse componente no array `declarations`.
 
-
-
 ## Definindo rotas
 
-Com a utilização de feature modules o recurso de rotas ganha uma utilidade ainda mais marcante e evidente. O fundamento adotado pelo Angular é que cada **feature module** pode possuir seu **módulo de rotas**. Posteriormente, cada módulo
+Com a utilização de feature modules o recurso de rotas ganha uma utilidade ainda mais marcante e evidente. O fundamento adotado pelo Angular é que cada **feature module** pode possuir seu **módulo de rotas**. Posteriormente, o **root module** poderá importar o **feature module** que desejar.
+
+O **módulo de rotas** para o módulo `Admin`, chamado `AdminRouting`, contém um conteúdo semelhante ao seguinte \(omitidas linhas com import\):
+
+```typescript
+...
+const routes: Routes = [
+  {
+    path: 'admin', component: AdminComponent, children: [
+      {path: 'disciplinas', component: ListaDeDisciplinasComponent},
+      {path: 'disciplinas/:id', component: DisciplinaComponent},
+      {path: 'disciplinas/:id/novo', component: CadastroDeDisciplinaComponent},
+      {path: 'disciplinas/:id/editar', component: CadastroDeDisciplinaComponent},
+      {path: 'cadastrar-turma', component: CadastroDeTurmaComponent},
+      {path: 'turmas', component: ListaDeTurmasComponent},
+      {path: 'turmas/:id', component: TurmaComponent},
+      {path: '', component: HomeComponent},
+      {path: '**', component: PaginaNaoEncontradaComponent}
+  ]}
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class AdminRoutingModule {
+}
+```
+
+Aqui o array `routes` ganha uma característica diferenciada: o primeiro objeto, cujo atributo `path` tem valor `'admin'` está relacionado ao componente `AdminComponent` e possui o atributo `children`, que é um array de rotas. O recurso que permite definir esses tipos de rotas é chamado de **rotas filhas**. Assim, a rota `'admin'` possui várias **rotas filhas**. 
 
