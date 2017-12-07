@@ -68,6 +68,14 @@ Apresentar uma figura ilustrando o diagrama de classes do software até aqui ser
 | AuthService | o serviço com a lógica para autenticação do usuário |
 | SharedModule | o módulo, em si |
 
+## Estrutura de Navegação
+
+Conforme o software aumenta na quantidade de componentes e funcionalidades torna-se interessante uma visão geral da navegação -- até mesmo porque estamos utilizando rotas. A figura a seguir ilustra a navegação entre as telas \(ou páginas\) do software.
+
+![Estrutura do site na forma de um mapa de navegação](/assets/feature-modules-navegacao.png)
+
+Essa figura permite compreender que a primeira tela acessada é a tela de login. A partir dela o usuário tem acesso à tela home e às demais telas, como disciplinas e turmas. A partir dessas telas outras podem ser acessdas, como a página da disciplina ou a página da turma. As setas são bidirecionais para indicar os caminhos são de ida e volta.
+
 ## Criando módulos
 
 Para criar os elementos da arquitetura vamos utilizar o Angular CLI. Para começar, vamos criar os **feature modules**. Para fazer isso execute a linha de comando a seguir.
@@ -157,7 +165,7 @@ export class AdminModule {
 }
 ```
 
-O penúltimo elemento do array `imports` é o módulo de rotas \(`AdminRoutingModule`\). 
+O penúltimo elemento do array `imports` é o módulo de rotas \(`AdminRoutingModule`\).
 
 O módulo de rotas para o módulo `Publico`, chamado `PublicoRouting`, contém um conteúdo semelhante ao seguinte:
 
@@ -179,7 +187,7 @@ export class PublicoRoutingModule {
 }
 ```
 
-O recurso de rotas filhas também é utilizado aqui. `PublicoComponent` é o shell component. O fato interessante é que o atributo `path` contém o mesmo valor `''` nas duas rotas. Como o Angular considera `''` a rota padrão, isso quer dizer que o `PublicoModule` tem maior prioridade no momento em o Angular procurar encontrar uma rota com base na URL. 
+O recurso de rotas filhas também é utilizado aqui. `PublicoComponent` é o shell component. O fato interessante é que o atributo `path` contém o mesmo valor `''` nas duas rotas. Como o Angular considera `''` a rota padrão, isso quer dizer que o `PublicoModule` tem maior prioridade no momento em o Angular procurar encontrar uma rota com base na URL.
 
 ## Incluindo as rotas dos feature modules no root module
 
@@ -217,7 +225,13 @@ Posteriormente, cada **feature module** importa o **shared module** quando preci
 
 ## Fluxo de trabalho
 
+O fluxo de trabalho do capítulo anterior acaba de ser atualizado -- e também aumentou em complexidade. Da mesma forma como antes, seguir os passos do processo também ajuda a compreendê-lo:
 
+1. **criar feature module**: essa agora é a primeira coisa a fazer;
+2. **criar componente**: crie os componentes do **feature module**. Continue conduzido esse processo de forma iterativa, não se preocupe em construir o componente por inteiro, deixe-o como criado pelo Angular CLI;
+3. **definir rotas**: depois, defina as rotas no **módulo de routas**;
+4. **implementar a lógica de negócio em um serviço**: utilize serviços para implementar a lógica de negócio; e
+5. **implementar lógica do componente e usar o serviço**: volte a trabalhar com cada compomente.
 
 
 
