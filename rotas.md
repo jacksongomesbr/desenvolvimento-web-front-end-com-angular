@@ -112,7 +112,7 @@ Para usar rotas é possível definí-las das seguintes formas:
 
 * no **root module**
 * no **feature module**
-* usando um **módulo de rotas**
+* no **módulo de rotas**
 
 Nesse momento vamos usar a primeira abordagem. Modifique o arquivo `./src/app/app.module.ts`:
 
@@ -161,6 +161,8 @@ A primeira rota, `disciplinas`, está associada ao componente `ListaDeDisciplina
 A segunda rota, `disciplinas/:id`, está usando um **parâmetro de rota**. A sintaxe do Angular para parâmetro de rotas é usar o sinal de dois pontos seguido do nome do parâmetro. Nesse caso o parâmetro chama-se `id`. A rota está associada ao componente `EditorDeDisciplinaComponent`.
 
 A terceira e a quarta rotas têm um comportamento especial. A terceira rota é uma string vazia e está associada ao componente `HomeComponent`. Isso significa que essa é a **rota padrão**. A quarta rota é `**`, associada ao componente `PaginaNaoEncontradaComponent`. Isso significa um atalho para o seguinte comportamento: se o usuário fornecer uma rota não definida, leve até o componente `PaginaNaoEncontradaComponent`.
+
+Por fim, as rotas são inseridas no módulo por meio de um elemento do array `imports` resultante de uma chamada para o método `RouterModule.forRoot()`, passando como parâmetro o array de rotas, o a variável `appRoutes`.
 
 Quando o software é executado o Angular busca uma combinação entre a URL fornecida no browser e as rotas definidas no módulo. Isso é feito de cima para baixo, procurando no array `appRoutes`. Ao encontrar uma rota correspondente, o Angular cria uma instância do componente e a apresenta. A figura a seguir ilustra esse processo.
 
