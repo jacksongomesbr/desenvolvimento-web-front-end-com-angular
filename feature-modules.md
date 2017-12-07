@@ -63,6 +63,8 @@ ng g m Admin/CadastroDeDisciplina -m Admin --spec false
 
 A linha de comando cria o componente `CadastroDeDisciplina` na pasta `src/app/admin/cadastro-de-disciplina` e modifica o `AppModule` para incluir esse componente no array `declarations`.
 
+## Estrutura do software
+
 Apresentar uma figura ilustrando o diagrama de classes do software até aqui seria inútil por causa da quantidade de arquivos e artefatos do software até então. Entretanto, para ter uma ideia do tamanho e da complexidade do software como criado neste capítulo, as tabelas a seguir apresentam a relação de componentes em cada **feature module **e uma breve descrição de cada um deles.
 
 **Módulo Admin**
@@ -95,9 +97,14 @@ Apresentar uma figura ilustrando o diagrama de classes do software até aqui ser
 | PublicoModule | o módulo, em si |
 | PublicoRoutingModule | o módulo de rotas |
 
+**Módulo Shared**
+
+| Component | Descrição |
+| :--- | :--- |
+| AuthService | o serviço com a lógica para autenticação do usuário |
+| SharedModule | o módulo, em si |
+
 ## Definindo rotas
 
-Com a utilização de feature modules o recurso de rotas ganha uma utilidade ainda mais marcante e evidente. O fundamento adotado pelo Angular é que cada **feature module** pode possuir seu **módulo de rotas**. Posteriormente, cada módulo 
-
-
+Com a utilização de feature modules o recurso de rotas ganha uma utilidade ainda mais marcante e evidente. O fundamento adotado pelo Angular é que cada **feature module** pode possuir seu **módulo de rotas**. Posteriormente, cada módulo
 
