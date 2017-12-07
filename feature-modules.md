@@ -26,7 +26,7 @@ Na prática, o `AppModule` funciona como um concentrador dos demais módulos, j�
 * `PublicoModule` contém funcionalidades que não requererem acesso por login e senha. 
 * `SharedModule` contém funcionalidades que são utilizadas por outros módulos.
 
-Na sequência o texto demonstra a construção parcial dessa arquitetura. 
+Na sequência o texto demonstra a construção parcial dessa arquitetura.
 
 ## Criando módulos
 
@@ -62,4 +62,42 @@ ng g m Admin/CadastroDeDisciplina -m Admin --spec false
 ```
 
 A linha de comando cria o componente `CadastroDeDisciplina` na pasta `src/app/admin/cadastro-de-disciplina` e modifica o `AppModule` para incluir esse componente no array `declarations`.
+
+Apresentar uma figura ilustrando o diagrama de classes do software até aqui seria inútil por causa da quantidade de arquivos e artefatos do software até então. Entretanto, para ter uma ideia do tamanho e da complexidade do software como criado neste capítulo, as tabelas a seguir apresentam a relação de componentes em cada **feature module **e uma breve descrição de cada um deles.
+
+**Módulo Admin**
+
+| Componente | Descrição |
+| :--- | :--- |
+| `AdminComponent` | o **shell component** do módulo `Admin` |
+| `CadastroDeDisciplinaComponent` | fornece um formulário para cadastro de uma disciplina |
+| `CadastroDeTurmaComponent` | fornece um formulário para cadastro de uma turma |
+| `DisciplinaComponent` | fornece a página inicial de uma disciplina, com dados para leitura ou consulta |
+| `HomeComponent` | fornece a página inicial do módulo `Admin` |
+| `ListaDeDisciplinasComponent` | fornece uma lista das disciplinas e dá acesso a outras funcionalidades: cadastrar, excluir e editar |
+| `ListaDeTurmasComponent` | fornece uma lista das turmas e dá acesso a outras funcionalidades: cadastrar, excluir e editar |
+| `PaginaNaoEncontradaComponent` | fornece uma página para ser apresentada quando uma URL não combinar com alguma das rotas do módulo `Admin` |
+| `TurmaComponent` | fornece a página inicial de uma turma, com dados para leitura ou consulta |
+| `AdminModule` | o módulo, em si |
+| `AdminRoutingModule` | o módulo de rotas |
+| `Disciplina` | o model de disciplina |
+| `DisciplinasService` | o serviço com a lógica de negócio para o gerenciamento de disciplinas |
+| `Turma` | o model de turma |
+| `TurmasService` | o serviço com a lógica de negócio para o gerenciamento de turmas |
+
+**Módulo Público**
+
+| Componente | Descrição |
+| :--- | :--- |
+| LoginComponent | fornece um formulário para autenticação e acesso ao sistema |
+| PublicoComponent | o **shell component** do módulo `Publico` |
+| LogonService | o serviço com a lógica para autenticação do usuário |
+| PublicoModule | o módulo, em si |
+| PublicoRoutingModule | o módulo de rotas |
+
+## Definindo rotas
+
+Com a utilização de feature modules o recurso de rotas ganha uma utilidade ainda mais marcante e evidente. O fundamento adotado pelo Angular é que cada **feature module** pode possuir seu **módulo de rotas**. Posteriormente, cada módulo 
+
+
 
