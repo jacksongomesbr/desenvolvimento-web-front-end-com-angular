@@ -93,5 +93,41 @@ Essas informações indicam dados adicionais:
 * o segundo teste executou em 0.143 - 0.101 = 0.042s
 * o terceiro teste executou em 0.184 - 0.143 = 0.041s
 
-Em detalhes, a spec `should have title as 'Angular'`:
+Ok, agora vamos a detalhes dos testes mas, antes de ver cada teste individualmente, o segundo parâmetro do método `describe()`  chama o método `beforeEach()`, que é utilizada para realizar uma espécie de **setup dos testes**, executando um código antes deles:
+
+```typescript
+import { TestBed, async } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
+  }));
+  ...
+```
+
+A classe `TestBed` é um utilitário do Angular para testes de software. Seu método `configureTestingModule()` cria um módulo específico para executar os testes que serão descritos a seguir. Pense nisso como um módulo mais enxuto que os utilizados no restante do software, voltando apenas para esses testes. Por isso você deveria entender que o parâmetro fornecido para o método é muito similar aos metadados de um módulo e, nesse caso, indicam os componentes do módulo \(atributo `declarations`\). Portanto, o setup permite que cada teste utilize o componente `AppComponent`.
+
+Primeiro teste:
+
+```typescript
+it('should create the app', async(() => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const app = fixture.debugElement.componentInstance;
+  expect(app).toBeTruthy();
+})); 
+```
+
+Esse primeiro teste verifica se foi possível criar uma instância do componente `AppComponent`, o que é feito por meio de uma sequência de passos:
+
+1. criar uma instância de `AppComponent`: isso é feito por meio do método `TestBed.createComponent()` \(armazenado na variável `fixture`\) que retorna uma instância de `ComponentFixture`, referência ao ambiente de execução dos testes. O ambiente de execução dos testes dá acesso ao `DebugElement`, que representa o elemento do DOM que representa o componente
+2. acessar a instância do componente \(`fixture.debugElement.componentInstance`\), armazenada na variável `app`;
+3. criar uma expectativa para o teste
+
+Uma expectativa é criada por meio do método `expect()`. Uma expectativa representa o comportamento esperado do software: que `app` \(uma instância do `AppComponent`\) não seja `null`. Isso é representado em código por meio de: `expect(app).toBeTruthy()`. Se expectativa não for satisfeita o teste falha. Nesse caso pode acontecer, por exemplo, um erro de tempo de execução \(**runtime**\).
+
+
 
