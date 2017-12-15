@@ -8,6 +8,7 @@
 * [Angular CLI](conceitos-iniciais/angular-cli.md)
 * [Software de gerenciamento escolar](software-de-gerenciamento-escolar.md)
 * [Criando o projeto](conceitos-iniciais/criando-o-projeto.md)
+* [Primeiro teste](conceitos-iniciais/primeiro-teste.md)
 * [Apresentando a lista de disciplinas](conceitos-iniciais/apresentando-a-lista-de-disciplinas.md)
 * [Cadastrando uma disciplina](cadastrando-uma-disciplina.md)
 * [Excluindo uma disciplina](excluindo-uma-disciplina.md)
