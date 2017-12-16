@@ -10,6 +10,7 @@
 * [Criando o projeto](conceitos-iniciais/criando-o-projeto.md)
 * [Iniciando com teste de software](conceitos-iniciais/primeiro-teste.md)
 * [Apresentando a lista de disciplinas](conceitos-iniciais/apresentando-a-lista-de-disciplinas.md)
+* [Testando a funcionalidade de listar disciplinas](testando-a-funcionalidade-de-listar-disciplinas.md)
 * [Cadastrando uma disciplina](cadastrando-uma-disciplina.md)
 * [Excluindo uma disciplina](excluindo-uma-disciplina.md)
 * [Editando dados de uma disciplina](conceitos-iniciais/editando-dados-de-uma-disciplina.md)
