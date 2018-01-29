@@ -8,13 +8,13 @@
 * [Angular CLI](conceitos-iniciais/angular-cli.md)
 * [Software de gerenciamento escolar](software-de-gerenciamento-escolar.md)
 * [Criando o projeto](conceitos-iniciais/criando-o-projeto.md)
+* [Depurando código no browser](conceitos-iniciais/depurando-codigo-no-browser.md)
 * [Iniciando com teste de software](conceitos-iniciais/primeiro-teste.md)
 * [Apresentando a lista de disciplinas](conceitos-iniciais/apresentando-a-lista-de-disciplinas.md)
-* [Testando a funcionalidade de listar disciplinas](testando-a-funcionalidade-de-listar-disciplinas.md)
 * [Cadastrando uma disciplina](cadastrando-uma-disciplina.md)
 * [Excluindo uma disciplina](excluindo-uma-disciplina.md)
 * [Editando dados de uma disciplina](conceitos-iniciais/editando-dados-de-uma-disciplina.md)
-* [Melhorando a interface gráfica do CRUD de Disciplinas](conceitos-iniciais/melhorando-a-interface-com-bootstrap.md)
+* Depurando código no browser
 
 ## Nível intermediário
 
