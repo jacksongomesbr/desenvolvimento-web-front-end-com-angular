@@ -36,26 +36,28 @@ O arquivo `package.json` contém informações do projeto, scripts e dependênci
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     ...
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.0.0",
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/forms": "^5.0.0",
-    "@angular/http": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
-    "@angular/router": "^5.0.0",
-    ...
+    "@angular/animations": "^5.2.0",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.2",
-    "@angular/compiler-cli": "^5.0.0",
-    "@angular/language-service": "^5.0.0",
+    "@angular/cli": "1.6.6",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
     ...
   }
 }
@@ -65,7 +67,7 @@ Por ser um conteúdo em formato JSON, o interpretamos da seguinte forma:
 
 * `name`: é o atributo que define o nome do projeto para o NodeJS \(nesse ponto, não tem a ver com o Angular\)
 * `scripts`: é o atributo que contém scripts que podem ser executados no prompt \(exemplos: `npm start` e `npm run build`\). Nesse caso esses scripts usam o Angular CLI \(veja os valores dos atributos `start` e `build`\)
-* `dependencies`: é o atributo que define as dependências do projeto. Basicamente, as dependências atuais são padrão para software desenvolvido em Angular. Importante notar que o nome de cada atributo determina o pacote \(como `@angular/core`\) e seu valor determina a versão \(como `^5.0.0`, indicando a versão desses pacotes do Angular\)
+* `dependencies`: é o atributo que define as dependências do projeto. Basicamente, as dependências atuais são padrão para software desenvolvido em Angular. Importante notar que o nome de cada atributo determina o pacote \(como `@angular/core`\) e seu valor determina a versão \(como `^5.2.0`, indicando a versão desses pacotes do Angular\)
 * `devDependencies`: é o atributo que define as dependências de desenvolvimeto. São ferramentas que não geram código-fonte que será distribuído junto com o software que está sendo desenvolvido
 
 ## Examinando o código-fonte\#0
@@ -75,7 +77,7 @@ Agora que você já conhece um pouco mais da estrutura do software Angular, do A
 ```html
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    Welcome to {{ title }}!
   </h1>
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN...Pg==">
 </div>
@@ -121,11 +123,11 @@ Se você não tiver interrompido a execução do script `npm start` acontecerá 
 
 ```html
 <h1>
-Welcome to {{title}}!
+Welcome to {{ title }}!
 </h1>
 ```
 
-Nesse momento você já deve ter aprendido que o trecho `{{title}}` é responsável por fazer com que o valor do atributo `title` to Controller apareça no Browser. Isso é resultado do processo de **Data binding**:
+Nesse momento você já deve ter aprendido que o trecho `{{ title }}` é responsável por fazer com que o valor do atributo `title` to Controller apareça no Browser. Isso é resultado do processo de **Data binding**:
 
 * analisa o Controller e identifica métodos e atributos
 * interpreta e analisa o Template e procura por, por exemplo, conteúdo que esteja entre `\{\{` e `\}\}`
@@ -228,6 +230,4 @@ As coisas estão ficando mais conectadas agora e a figura a seguir ilustra isso.
 ## O que vem a seguir?
 
 Como agora você já deve estar entendendo melhor o funcionamento do Angular e o código-fonte do projeto, é hora de sujar as mãos =\) No capítulo a seguir você vai implementar o requisito: **ver as disciplinas**.
-
-
 
