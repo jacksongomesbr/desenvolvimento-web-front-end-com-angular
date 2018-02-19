@@ -131,7 +131,8 @@ Nesse momento você já deve ter aprendido que o trecho `{{ title }}` é respons
 
 * analisa o Controller e identifica métodos e atributos
 * interpreta e analisa o Template e procura por, por exemplo, conteúdo que esteja entre {% raw %} `{{` {% endraw %} e {% raw %} }} {% endraw %}
-* utiliza o recurso de **interpolação**, que faz com a expressão dentro de `{{` e `}}` seja interpretada e gere uma alteração no conteúdo do Template ao ser apresentado no Browser. Nesse caso `{{ title }}` significa: mostre o valor de `title`. 
+* utiliza o recurso de **interpolação**, que faz com a expressão dentro de {% raw %} `{{` {% endraw %} e {% raw %} }} {% endraw %}
+ seja interpretada e gere uma alteração no conteúdo do Template ao ser apresentado no Browser. Nesse caso `{{ title }}` significa: mostre o valor de `title`. 
 
 A figura a seguir ilustra os elementos desse processo.
 
