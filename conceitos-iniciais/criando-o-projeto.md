@@ -130,7 +130,7 @@ Welcome to {{ title }}!
 Nesse momento você já deve ter aprendido que o trecho `{{ title }}` é responsável por fazer com que o valor do atributo `title` to Controller apareça no Browser. Isso é resultado do processo de **Data binding**:
 
 * analisa o Controller e identifica métodos e atributos
-* interpreta e analisa o Template e procura por, por exemplo, conteúdo que esteja entre `{{` e `}}`
+* interpreta e analisa o Template e procura por, por exemplo, conteúdo que esteja entre {% raw %} {{ {% endraw %} e {% raw %} }} {% endraw %}
 * utiliza o recurso de **interpolação**, que faz com a expressão dentro de `{{` e `}}` seja interpretada e gere uma alteração no conteúdo do Template ao ser apresentado no Browser. Nesse caso `{{ title }}` significa: mostre o valor de `title`. 
 
 A figura a seguir ilustra os elementos desse processo.
